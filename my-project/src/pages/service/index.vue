@@ -1,6 +1,5 @@
 <template>
     <div>
-    
     <i-tab-bar>
         <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title=""></i-tab-bar-item>
         <i-tab-bar-item key="group" icon="group" current-icon="group_fill" title="Friends"></i-tab-bar-item>
@@ -11,19 +10,19 @@
     <i-grid>
             <i-grid-item>
                 <i-grid-icon>
-                    <image src="../../../static/images/user.png" />
+                    <image src="../../static/tabs/orders.png" />
                 </i-grid-icon>
                 <i-grid-label>Grid</i-grid-label>
             </i-grid-item>
             <i-grid-item>
                 <i-grid-icon>
-                    <image src="../../../static/images/user.png" />
+                    <image src="../../static/tabs/orders.png" />
                 </i-grid-icon>
                 <i-grid-label>Grid</i-grid-label>
             </i-grid-item>
             <i-grid-item>
                 <i-grid-icon>
-                    <image src="../../../static/images/user.png" />
+                    <image src="../../static/tabs/orders.png" />
                 </i-grid-icon>
                 <i-grid-label>Grid</i-grid-label>
             </i-grid-item>
@@ -33,11 +32,9 @@
     </div>
 </template>
 
-
-
 <script>
 export default {
- 
+
 }
 </script>
 

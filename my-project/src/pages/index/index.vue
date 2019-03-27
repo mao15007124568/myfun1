@@ -23,7 +23,7 @@
     </form>
 
     <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
-    <a href="/pages/test/main" class="counter">去往测试页面</a>
+    <a href="/pages/service/main" class="counter">去往测试页面</a>
 
     <div class="all">
         <div class="left">
