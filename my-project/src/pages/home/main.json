@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "启动页",
     "usingComponents":{
     "i-tab-bar": "../../../static/dist/tab-bar/index",
     "i-tab-bar-item": "../../../static/dist/tab-bar-item/index",
