@@ -3,7 +3,8 @@
     "pages/index/main",
     "pages/logs/main",
     "pages/counter/main",
-    "pages/service/main"
+    "pages/service/main",
+    "pages/home/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,7 +20,7 @@
 
     "list": [{
       "text": "首页",
-      "pagePath": "pages/index/main",
+      "pagePath": "pages/home/main",
       "iconPath": "static/tabs/首页 (1).png",
       "selectedIconPath": "static/tabs/首页.png"
     }, {
@@ -29,7 +30,7 @@
       "selectedIconPath": "static/tabs/查看.png"
     },{
       "text": "服务",
-      "pagePath": "pages/logs/main",
+      "pagePath": "pages/service/main",
       "iconPath": "static/tabs/服务 (1).png",
       "selectedIconPath": "static/tabs/服务.png"
     },{
@@ -41,7 +42,7 @@
 
     "items": [{
       "name": "首页",
-      "pagePath": "pages/index/main",
+      "pagePath": "pages/home/main",
       "icon": "static/tabs/首页 (1).png",
       "activeIcon": "static/tabs/首页.png"
     }, {
