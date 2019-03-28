@@ -1,13 +1,9 @@
 <template>
     <div>
-    <i-card title="驾校查询>个人预约">
+    <br/><br/>
+    <i-card title="驾校查询" extra="不知道该写些什么内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
     <view slot="content">内容不错</view>
-    <view slot="content">查看预约</view>
-    <view slot="footer">尾部内容</view>
-    </i-card>
-    <br>
-    <i-card title="驾校查询" extra="今天是个好日子" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="content">内容不错</view>
+    <view>查看预约</view>
     <view slot="footer">尾部内容</view>
     </i-card>
 
@@ -43,6 +39,8 @@ export default {
 </script>
 
 <style>
-
+.overall {
+  background-color:#f8f8f9;
+}
 </style>
 

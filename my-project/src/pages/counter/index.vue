@@ -1,5 +1,5 @@
 <template>
-  <div class="counter-warp">
+  <div class="counter-warp overall">
     <p>Vuex counter：{{ count }}</p>
     <p>
       <button @click="increment">+</button>
@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style>
+.overall {
+  background-color:#f8f8f9;
+  height:60px;
+}
 .counter-warp {
   text-align: center;
   margin-top: 100px;

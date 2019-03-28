@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overall">
       <swiper v-if="imgUrls.length > 0" indidator-dots="imgUrls.length > 1" >
       <block v-for="(item, index) in imgUrls" :key="index" >
         <swiper-item>
@@ -49,6 +49,10 @@ export default {
 </script>
 
 <style>
+.overall {
+  background-color:#f8f8f9;
+  height:60px;
+}
 .log-list {
   display: flex;
   flex-direction: column;

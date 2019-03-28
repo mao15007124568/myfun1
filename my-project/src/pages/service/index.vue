@@ -1,32 +1,13 @@
 <template>
-    <div>
-    <i-tab-bar>
-        <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title=""></i-tab-bar-item>
-        <i-tab-bar-item key="group" icon="group" current-icon="group_fill" title="Friends"></i-tab-bar-item>
-        <i-tab-bar-item key="remind" icon="remind" current-icon="remind_fill" count="3" title="Notice"></i-tab-bar-item>
-        <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" dot title="My"></i-tab-bar-item>
-    </i-tab-bar>
-
-    <i-grid>
-            <i-grid-item>
-                <i-grid-icon>
-                    <image src="../../static/tabs/orders.png" />
-                </i-grid-icon>
-                <i-grid-label>Grid</i-grid-label>
-            </i-grid-item>
-            <i-grid-item>
-                <i-grid-icon>
-                    <image src="../../static/tabs/orders.png" />
-                </i-grid-icon>
-                <i-grid-label>Grid</i-grid-label>
-            </i-grid-item>
-            <i-grid-item>
-                <i-grid-icon>
-                    <image src="../../static/tabs/orders.png" />
-                </i-grid-icon>
-                <i-grid-label>Grid</i-grid-label>
-            </i-grid-item>
-    </i-grid>
+    <div class="overall">
+    <i-cell-group>
+    <i-cell title="只显示箭头" is-link></i-cell>
+    <i-cell title="跳转到首页" is-link url="/pages/home/home"></i-cell>
+    <i-cell title="只有 footer 点击有效" is-link url="/pages/logs/index" only-tap-footer></i-cell>
+    <i-cell title="开关">
+        <switch slot="footer" checked />
+    </i-cell>
+    </i-cell-group>
 
      <i-button type="primary" bind:click="handleClick">这是一个按钮</i-button>
     </div>
@@ -38,6 +19,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.overall {
+  background-color:#f8f8f9;
+  height:500px;
+}
 </style>
