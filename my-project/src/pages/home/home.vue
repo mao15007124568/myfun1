@@ -1,11 +1,15 @@
 <template>
     <div>
-    <i-tab-bar>
-        <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title=""></i-tab-bar-item>
-        <i-tab-bar-item key="group" icon="group" current-icon="group_fill" title="Friends"></i-tab-bar-item>
-        <i-tab-bar-item key="remind" icon="remind" current-icon="remind_fill" count="3" title="Notice"></i-tab-bar-item>
-        <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" dot title="My"></i-tab-bar-item>
-    </i-tab-bar>
+    <i-card title="驾校查询>个人预约">
+    <view slot="content">内容不错</view>
+    <view slot="content">查看预约</view>
+    <view slot="footer">尾部内容</view>
+    </i-card>
+    <br>
+    <i-card title="驾校查询" extra="今天是个好日子" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">内容不错</view>
+    <view slot="footer">尾部内容</view>
+    </i-card>
 
     <i-grid>
             <i-grid-item>

@@ -10,18 +10,18 @@ export default {
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
 
-    let home
+    let logs
     if (mpvuePlatform === 'my') {
-      home = mpvue.getStorageSync({key: 'home'}).data || []
-      home.unshift(Date.now())
+      logs = mpvue.getStorageSync({key: 'logs'}).data || []
+      logs.unshift(Date.now())
       mpvue.setStorageSync({
-        key: 'home',
-        data: home
+        key: 'logs',
+        data: logs
       })
     } else {
-      home = mpvue.getStorageSync('home') || []
-      home.unshift(Date.now())
-      mpvue.setStorageSync('home', home)
+      logs = mpvue.getStorageSync('logs') || []
+      logs.unshift(Date.now())
+      mpvue.setStorageSync('logs', logs)
     }
   },
   log () {
