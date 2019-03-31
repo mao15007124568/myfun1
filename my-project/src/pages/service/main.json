@@ -1,13 +1,11 @@
 {
-    "usingComponents":{
-    "i-cell-group": "../../dist/cell-group/index",
-    "i-cell": "../../dist/cell/index",
-    "i-tab-bar": "../../../static/dist/tab-bar/index",
-    "i-tab-bar-item": "../../../static/dist/tab-bar-item/index",
-    "i-button": "../../../static/dist/button/index",
-    "i-grid": "../../../static/dist/grid/index",
-    "i-grid-item": "../../../static/dist/grid-item/index",
-    "i-grid-icon": "../../../static/dist/grid-icon/index",
-    "i-grid-label": "../../../static/dist/grid-label/index"
+    "navigationBarTitleText": "List 列表",
+    "usingComponents": {
+      "i-cell-group": "../../../static/dist/cell-group/index",
+      "i-cell": "../../../static/dist/cell/index",
+      "i-panel": "../../../static/dist/panel/index",
+      "i-icon": "../../../static/dist/icon/index",
+      "i-switch": "../../../static/dist/switch/index"
     }
 }
+  
