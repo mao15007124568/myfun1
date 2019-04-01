@@ -5,13 +5,12 @@
     "pages/counter/main",
     "pages/service/main",
     "pages/home/main",
-    "pages/index1/main",
     "pages/mine/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2d8cf0",
-    "navigationBarTitleText": "智慧停车",
+    "navigationBarTitleText": "智慧练车",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

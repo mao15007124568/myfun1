@@ -1,17 +1,23 @@
 <template>
-  <div class="container" v-bind:style="{height: viewHeight + 'px'}">
-    <div class="userinfo">
-      <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
-      <div class="userinfo-nickname">
-        <open-data type="userNickName"></open-data>
-      </div>
-    </div>
+  <div>
+      <view class="userinfo">
+      <view class="userinfo-avatar">
+      <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+      </view>
 
-    <div v-if="!userInfo.nickname" class="weui-cells weui-cells_after-title">
+      <i-cell-group>
+          <i-cell title="我的收藏" is-link url="/pages/logs/main"></i-cell>
+          <i-cell title="接收通知">
+              <switch slot="footer" checked />
+          </i-cell>
+      </i-cell-group>
+
       <i-cell-group>
             <i-cell title="只显示箭头" is-link></i-cell>
-            <i-cell title="跳转到首页" is-link url="/pages/dashboard/index"></i-cell>
-            <i-cell title="只有 footer 点击有效" is-link url="/pages/dashboard/index" only-tap-footer></i-cell>
+            <i-cell title="跳转到首页" is-link url="/pages/logs/main"></i-cell>
+            <i-cell title="只有 footer 点击有效" is-link url="/pages/logs/main" only-tap-footer></i-cell>
             <i-cell title="开关">
                 <switch slot="footer" checked />
             </i-cell>
@@ -20,54 +26,29 @@
 
    
 
-  </div>
 </template>
 
 <script>
+  
 
   export default {
-    components: {
-    },
-    computed: {
-      viewHeight() {
-        // return env.state.deviceInfo.windowHeight
-      },
-      userInfo() {
-        // return env.state.userInfo
-      }
-    },
+   
     data() {
       return {
-        nickname:"",
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
-      }
-    },
-    methods: {
-      onGotUserInfo() {
-        wx.getUserInfo({
-          withCredentials: true,
-          success: function (res) {
-            // env.dispatch('bindUserDetail', res.userInfo)
-          }
-        })
-      }
-    },
-    onShareAppMessage: function (ops) {
-      if (ops.from === 'button') {
-        console.log('share', ops.target)
-      }
-      return {
-        title: '智慧社区',
-        path: '/pages/index/main',
-        success: function (res) {
-          console.log('share success', JSON.stringify(res))
-        },
-        fail: function (res) {
-          console.log('share error', JSON.stringify(res))
+        userInfo: {
+        nickName: 'mpvue',
+        avatarUrl: 'http://mpvue.com/assets/logo.png'
         }
       }
     },
-    onReady() {}
+    components: {
+      
+    },
+    methods: {
+     
+    },
+    
+   
   }
 
 </script>
@@ -91,7 +72,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1296db;
+    background-color: #2d8cf0;
   }
 
   .userinfo-avatar {
