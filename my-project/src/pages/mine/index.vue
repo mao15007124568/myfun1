@@ -6,11 +6,29 @@
       </view>
       <open-data type="userNickName"></open-data>
       </view>
+<<<<<<< HEAD
 
       <i-cell-group>
           <i-cell title="个人信息" is-link url="/pages/logs/main"></i-cell>
           <i-cell title="预约记录" is-link url="/pages/logs/main"></i-cell>
           <i-cell title="信誉积分" is-link url="/pages/logs/main"></i-cell>
+=======
+
+      <i-cell-group>
+          <i-cell title="我的收藏" is-link url="/pages/logs/main"></i-cell>
+          <i-cell title="接收通知">
+              <switch slot="footer" checked />
+          </i-cell>
+      </i-cell-group>
+
+      <i-cell-group>
+            <i-cell title="只显示箭头" is-link></i-cell>
+            <i-cell title="跳转到首页" is-link url="/pages/logs/main"></i-cell>
+            <i-cell title="只有 footer 点击有效" is-link url="/pages/logs/main" only-tap-footer></i-cell>
+            <i-cell title="开关">
+                <switch slot="footer" checked />
+            </i-cell>
+>>>>>>> fa6fc5ae43348e5969660009a4708d8c159818de
       </i-cell-group>
     </div>
 
