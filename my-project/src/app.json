@@ -5,13 +5,12 @@
     "pages/counter/main",
     "pages/service/main",
     "pages/home/main",
-    "pages/index1/main",
     "pages/mine/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2d8cf0",
-    "navigationBarTitleText": "智慧停车",
+    "navigationBarTitleText": "智慧练车",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -25,16 +24,6 @@
       "pagePath": "pages/home/main",
       "iconPath": "static/tabs/首页 (1).png",
       "selectedIconPath": "static/tabs/首页.png"
-    }, {
-      "text": "查看",
-      "pagePath": "pages/logs/main",
-      "iconPath": "static/tabs/查看 (1).png",
-      "selectedIconPath": "static/tabs/查看.png"
-    },{
-      "text": "服务",
-      "pagePath": "pages/service/main",
-      "iconPath": "static/tabs/服务 (1).png",
-      "selectedIconPath": "static/tabs/服务.png"
     },{
       "text": "我的",
       "pagePath": "pages/mine/main",
@@ -47,16 +36,6 @@
       "pagePath": "pages/home/main",
       "icon": "static/tabs/首页 (1).png",
       "activeIcon": "static/tabs/首页.png"
-    }, {
-      "name": "查看",
-      "pagePath": "pages/logs/main",
-      "icon": "static/tabs/服务 (1).png",
-      "activeIcon": "static/tabs/服务.png"
-    },{
-      "name": "服务",
-      "pagePath": "pages/logs/main",
-      "icon": "static/tabs/服务 (1).png",
-      "activeIcon": "static/tabs/服务.png"
     },{
       "name": "我的",
       "pagePath": "pages/service/main",

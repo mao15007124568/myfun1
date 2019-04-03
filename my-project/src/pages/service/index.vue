@@ -1,10 +1,16 @@
 <template>
     <div>
-        <radio-group class="radio-group" @change="radioChange">
-      <label class="radio" v-for="(item, index) in items" :key="item.name">
-        <radio :value="item.name" :checked="item.checked"/> {{item.value}}
-      </label>
-    </radio-group>
+        <i-tabs :current="current_scroll" scroll @change="handleChangeScroll">
+            <i-tab key="tab1" title="选项1"></i-tab>
+            <i-tab key="tab2" title="选项2"></i-tab>
+            <i-tab key="tab3" title="选项3"></i-tab>
+            <i-tab key="tab4" title="选项4"></i-tab>
+            <i-tab key="tab5" title="选项5"></i-tab>
+            <i-tab key="tab6" title="选项6"></i-tab>
+            <i-tab key="tab7" title="选项7"></i-tab>
+            <i-tab key="tab8" title="选项8"></i-tab>
+            <i-tab key="tab9" title="选项9"></i-tab>
+        </i-tabs>
        
     </div>
 </template>
@@ -13,19 +19,14 @@
 export default {
 data () {
     return {
-      items: [
-        {name: 'USA', value: '美国'},
-        {name: 'CHN', value: '中国', checked: 'true'},
-        {name: 'BRA', value: '巴西'},
-        {name: 'JPN', value: '日本'},
-        {name: 'ENG', value: '英国'},
-        {name: 'TUR', value: '法国'}
-      ]
-    }
+      data: {
+        current_scroll: 'tab1'
+    },
+   }
   },
   methods: {
-    radioChange (e) {
-      console.log('radio发生change事件，携带value值为：', e.target.value)
+    handleChangeScroll (data) {
+      console.log(data)
     }
   }
 }
