@@ -5,6 +5,8 @@
        {{notice}}
     </i-notice-bar>
 
+    
+
     <swiper
     :indicator-dots="indicatorDots"
     :autoplay="autoplay"
@@ -31,6 +33,37 @@
     <view>查看预约</view>
     <view slot="footer">尾部内容</view>
     </i-card>
+
+    <i-card title="预约" extra="进入" i-class="re_card" @click="move">
+    <view slot="content">预约即可享受免等待练车服务</view>
+    <view>查看预约</view>
+    <view slot="footer" @click="move">查看科目二驾考规则</view>
+    </i-card>
+
+    <i-card title="详情" extra="进入" i-class="re_card" @click="move">
+    <view slot="content">可实时查看驾校练车状态</view>
+    <view>查看预约</view>
+    <view slot="footer">尾部内容</view>
+    </i-card>
+
+    <i-card title="预约" extra="进入" i-class="re_card" @click="move">
+    <view slot="content">预约即可享受免等待练车服务</view>
+    <view>查看预约</view>
+    <view slot="footer" @click="move">查看科目二驾考规则</view>
+    </i-card>
+
+    <i-card title="详情" extra="进入" i-class="re_card" @click="move">
+    <view slot="content">可实时查看驾校练车状态</view>
+    <view>查看预约</view>
+    <view slot="footer">尾部内容</view>
+    </i-card>
+
+    <!-- <i-button @click="toggleLeft1" type="ghost">左边弹出1</i-button> -->
+    <!-- <i-drawer mode="left" :visible="showLeft1" @close="toggleLeft1">
+        <view class="demo-container">
+            单击遮罩层关闭
+        </view>
+    </i-drawer> -->
 
     <i-button bind:click="handleClick" type="primary">查看科二驾考规则</i-button>
     </div>

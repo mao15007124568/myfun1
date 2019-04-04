@@ -7,7 +7,8 @@
     "pages/home/main",
     "pages/mine/main",
     "pages/index1/main",
-    "pages/register/main"
+    "pages/register/main",
+    "pages/home1/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

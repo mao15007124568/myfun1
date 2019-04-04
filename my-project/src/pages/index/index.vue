@@ -38,7 +38,7 @@ export default {
 
   methods: {
     bindViewTap () {
-      const url = '../home/main'
+      const url = '../register/main'
       if (mpvuePlatform === 'wx') {
         mpvue.switchTab({ url })
       } else {
