@@ -5,7 +5,9 @@
     "pages/counter/main",
     "pages/service/main",
     "pages/home/main",
-    "pages/mine/main"
+    "pages/mine/main",
+    "pages/index1/main",
+    "pages/register/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

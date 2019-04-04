@@ -34,6 +34,7 @@ export default {
 .container {
   height: 100%;
   display: flex;
+  background:pink;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -46,5 +47,10 @@ export default {
   -moz-transition: width 2s;
   -webkit-transition: width 2s;
   -o-transition: width 2s;
+}
+
+#test element.style {
+    background-color:pink;
+    color:black
 }
 </style>
