@@ -15,6 +15,11 @@
         <card :text="motto"></card>
       </div>
     </div>
+
+    <i-modal title="选择身份" :visible="visible" :actions="actions" @click="handleClick">
+        <view>请选择您的身份</view>
+    </i-modal>
+
   </div>
 </template>
 
@@ -24,11 +29,26 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      detail:'',
+      visible:true,
       motto: '你好，欢迎来到智慧停车小程序',
       userInfo: {
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+      },
+      actions: [
+            {
+                name: '学员',
+                color: '#2d8cf0',
+            },
+            {
+                name: '驾校',
+                color: '#19be6b'
+            },
+            {
+                name: '取消'
+            }
+        ],
     }
   },
 
@@ -38,21 +58,29 @@ export default {
 
   methods: {
     bindViewTap () {
-      const url = '../register/main'
-      if (mpvuePlatform === 'wx') {
-        mpvue.switchTab({ url })
-      } else {
+      const url = '../logs/main'
         mpvue.navigateTo({ url })
-      }
+        console.log("跳转成功")
     },
     clickHandle (ev) {
       console.log('clickHandle:', ev)
       // throw {message: 'custom test'}
+    },
+    handleClick( detail ) {
+    console.log(detail);
+    // const index = detail.index;
+    // console.log(index);
+          // if (index === 0) {
+            wx.navigateTo({
+                  url: '/pages/register/main'
+              })
+          // } else if (index === 1) {
+          //   wx.navigateTo({
+          //         url: '/pages/register/main'
+          //   })
+          // } else {
+          // }
     }
-  },
-
-  created () {
-    // let app = getApp()
   }
 }
 </script>
