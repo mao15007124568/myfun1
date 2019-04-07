@@ -1,15 +1,13 @@
 {
   "pages": [
     "pages/index/main",
-    "pages/logs/main",
-    "pages/counter/main",
-    "pages/service/main",
     "pages/home/main",
-    "pages/mine/main",
-    "pages/index1/main",
-    "pages/register/main",
+    "pages/reserve/main",
     "pages/home1/main",
-    "pages/reserve/main"
+    "pages/mine/main",
+    "pages/mine1/main",
+    "pages/register/main",
+    "pages/status/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

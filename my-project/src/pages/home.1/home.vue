@@ -15,7 +15,7 @@
     >
     <block v-for="item in imgUrls" :key="item">
         <swiper-item>
-        <image :src="item" class="slide-image" width="355" height="150" />
+        <image :src="item" class="slide-image" width="600" height="150" />
         </swiper-item>
     </block>
     </swiper>
@@ -94,9 +94,9 @@ export default {
         showLeft1: false,
         notice:'今日练车人数非常少，小伙伴们快来练车哟',
         imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?',
+      'https://images.unsplash.com/photo-1551214012-84f95e060dee?',
+      'https://images.unsplash.com/photo-1551446591-142875a901a1?'
     ],
     indicatorDots: false,
     autoplay: true,

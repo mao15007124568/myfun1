@@ -38,11 +38,11 @@
       
     },
     methods: {
-     toHome(){
-        wx.navigateTo({
-                  url: '/pages/Home/main'
-              })
-     }
+    toHome(){
+        wx.switchTab({
+        url: '/pages/home/main'
+      })
+    }
     },
     
    
