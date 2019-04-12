@@ -32,9 +32,9 @@ export default {
 
 <style>
 .container {
-  height: 100%;
+  height: 600px;
   display: flex;
-  background:pink;
+  background:#f8f8f9;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

@@ -3,9 +3,9 @@
     "pages/index/main",
     "pages/home/main",
     "pages/reserve/main",
-    "pages/home1/main",
+    "pages/home.1/main",
     "pages/mine/main",
-    "pages/mine1/main",
+    "pages/mine.1/main",
     "pages/register/main",
     "pages/status/main"
   ],
