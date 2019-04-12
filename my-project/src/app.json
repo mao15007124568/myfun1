@@ -7,6 +7,7 @@
     "pages/mine/main",
     "pages/mine1/main",
     "pages/register/main",
+    "pages/register1/main",
     "pages/status/main"
   ],
   "window": {

@@ -31,6 +31,9 @@ export default {
     this.getUserInfo();
     wx.showModal({
     title: '提示',
+    confirmText:'我是学员',
+    confirmColor:'#2d8cf0',
+    cancelText:'我是驾校',
     content: '请选择您的身份',
     success(res) {
       if (res.confirm) {
@@ -41,7 +44,7 @@ export default {
       } else if (res.cancel) {
         console.log('用户选择了驾校身份')
         wx.navigateTo({
-          url: '/pages/register/main'
+          url: '/pages/register1/main'
         })
       }
     }

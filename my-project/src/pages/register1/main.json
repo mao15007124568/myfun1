@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "驾校注册",
+    "usingComponents": {
+      "i-button": "../../../static/dist/button/index",
+      "i-input": "../../../static/dist/input/index",
+      "i-radio-group": "../../../static/dist/radio-group/index",
+      "i-radio": "../../../static/dist/radio/index"
+  }
+  }
