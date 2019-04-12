@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container1">
       <view class="userinfo">
         <div class="userinfo" v-if="userInfo.nickName">
           <img class="userinfo-avatar" :src="userInfo.avatarUrl" background-size="cover" />
@@ -38,18 +38,12 @@
       }
     },
     created(){
-      this.getUserInfo();
-    },
+    this.getUserInfo();
+   },
     methods: {
-    toHome(){
-        wx.switchTab({
-        url: '/pages/home/main'
-      })
-    }
-    },
     authSetUser (e) {
         this.userInfo=e.mp.detail.userInfo;
-      },
+    },
     getUserInfo () {
         // 调用登录接口
         var _this=this;
@@ -60,11 +54,15 @@
               },
               fail(err) {
                 console.log(err);
-              }
-            })
+            }
+        })
+      },
+      toHome(){
+          wx.switchTab({
+          url: '/pages/home1/main'
+        })
       }
-    
-   
+      },
   }
 
 </script>
@@ -78,7 +76,10 @@
    div >>> .re_panel{
      margin-top:30px;
    }
-
+   
+   div >>> .container1{
+     background-color:#f8f8f9;
+   }
   .userinfo {
     width: 100%;
     display: flex;

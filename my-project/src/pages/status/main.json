@@ -1,6 +1,5 @@
 {
     "usingComponents": {
-       "i-modal": "../../../static/dist/modal/index",
-       "i-message": "../../../static/dist/message/index"
+      "i-panel": "../../../static/dist/panel/index"
   }
 }

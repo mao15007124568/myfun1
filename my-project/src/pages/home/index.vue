@@ -27,13 +27,12 @@
     <view slot="footer" @click="move">查看科目二驾考规则</view>
     </i-card>
 
-    <i-card title="详情" extra="进入" i-class="re_card" @click="move">
+    <i-card title="详情" extra="进入" i-class="re_card" @click="move1">
     <view slot="content">可实时查看驾校练车状态</view>
     <view>查看预约</view>
     <view slot="footer">尾部内容</view>
     </i-card>
-
-    <i-button bind:click="handleClick" type="primary">查看科二驾考规则</i-button>
+    
     </div>
 </template>
 
@@ -79,7 +78,12 @@ export default {
         },
         move(){
             wx.navigateTo({
-                url: '/pages/register/main'
+                url: '/pages/reserve/main'
+            })
+        },
+        move1(){
+            wx.navigateTo({
+                url: '/pages/status/main'
             })
         }
     }

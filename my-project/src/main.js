@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App'
 
-
 import fly from './utils/request'
 Vue.prototype.$fly = fly
 

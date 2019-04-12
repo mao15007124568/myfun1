@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "首页",
+    "navigationBarTitleText": "驾校首页",
     "usingComponents":{
     "i-radio-group": "../../../static/dist/radio-group/index",
     "i-radio": "../../../static/dist/radio/index",

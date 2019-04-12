@@ -55,6 +55,10 @@
      width:85%;
      margin:60px auto;
    }
+
+   div >>> .container1{
+     background-color:#f8f8f9;
+   }
  
   .userinfo {
     width: 100%;
