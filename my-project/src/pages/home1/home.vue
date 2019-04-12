@@ -5,8 +5,6 @@
        {{notice}}
     </i-notice-bar>
 
-    
-
     <swiper
     :indicator-dots="indicatorDots"
     :autoplay="autoplay"

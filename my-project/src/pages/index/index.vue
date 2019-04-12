@@ -8,12 +8,6 @@
     <button v-if="!userInfo.nickName" open-type="getUserInfo" @getuserinfo="authSetUser">
         授权登录
     </button>
-   
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -24,7 +18,6 @@ export default {
   data () {
     return {
       userInfo: {},
-      motto: '你好，欢迎来到智慧停车小程序',
     }
   },
   created(){

@@ -1,15 +1,20 @@
 <template>
   <div>
       <view class="userinfo">
-      <view class="userinfo-avatar">
-      <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-      </view>
+        <div class="userinfo" v-if="userInfo.nickName">
+          <img class="userinfo-avatar" :src="userInfo.avatarUrl" background-size="cover" />
+          <p>{{userInfo.nickName}}</p>
+          <!-- <p>{{userInfo.province+'-'+userInfo.city}}</p> -->
+        </div>
+        <button v-if="!userInfo.nickName" open-type="getUserInfo" @getuserinfo="authSetUser">
+            授权登录
+        </button>
+     </view>
 
-      <i-panel title="基础用法">
-          <i-input :value="value1" type="text" title="姓名" autofocus placeholder="名字" />
-          <i-input :value="value2" type="number" title="手机号" placeholder="请输入手机号" />
+      <i-panel title="基础用法" class="re_panel">
+          <i-input :value="value1" type="text" title="驾校名称" autofocus placeholder="请输入驾校名称" />
+          <i-input :value="value2" type="textarea" title="详细地址" placeholder="请输入详细地址(最多50字)" maxlength="50" />
+          <i-input :value="value3" type="number" title="驾校联系方式" placeholder="请输入手机号" />
       </i-panel>
       
       <i-button i-class="btn" @click="toHome" type="primary"  shape="circle">进入</i-button>
@@ -28,14 +33,12 @@
       return {
         value1: '',
         value2: '',
-        userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-        }
+        value3: '',
+        userInfo: {}
       }
     },
-    components: {
-      
+    created(){
+      this.getUserInfo();
     },
     methods: {
     toHome(){
@@ -44,6 +47,22 @@
       })
     }
     },
+    authSetUser (e) {
+        this.userInfo=e.mp.detail.userInfo;
+      },
+    getUserInfo () {
+        // 调用登录接口
+        var _this=this;
+            wx.getUserInfo({//当已授权getUserInfo时
+              success(res) {
+                console.log(res);
+                _this.userInfo=res.userInfo
+              },
+              fail(err) {
+                console.log(err);
+              }
+            })
+      }
     
    
   }
@@ -55,13 +74,23 @@
      width:85%;
      margin:60px auto;
    }
- 
+  
+   div >>> .re_panel{
+     margin-top:30px;
+   }
+
   .userinfo {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #2d8cf0;
+  }
+
+  .userinfo1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .userinfo-avatar {
