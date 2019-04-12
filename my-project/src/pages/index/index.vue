@@ -45,7 +45,7 @@ export default {
   methods: {
     authSetUser (e) {
         this.userInfo=e.mp.detail.userInfo;
-      },
+    },
     getUserInfo () {
         // 调用登录接口
         var _this=this;

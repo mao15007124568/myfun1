@@ -10,6 +10,8 @@
           <i-button i-class="re_button" @click="handleClick" type="primary" shape="circle" size="small">点击预约</i-button>
           <i-button  i-class="re_button" @click="handleClick2" type="primary" shape="circle" size="small">取消预约</i-button>
           </div>
+
+          
       </i-panel>
 
   </div>
@@ -19,7 +21,7 @@
 </template>
 
 <script>
-  
+   const { $Message } = require('../../../static/dist/base/index');
 
   export default {
    
@@ -29,20 +31,40 @@
         number1: '14',
         number2: '23',
         number3: '4',
+        actions: [
+            {
+                name: '取消'
+            },
+            {
+                name: '预约',
+                color: '#ed3f14',
+                loading: false
+            }
+        ]
       }
     },
     created() {
       
     },
     methods: {
-     handleClick(){
-        this.$fly.request({
-            method:"post", //post/get 请求方式
-            // url:"/mms/country/queryValidZoneListForMallHome",
-            body:{}
-          }).then(res =>{
+     handleClick(detail){
+       console.log(detail)
+       wx.showModal({
+        title: '预约确认',
+        confirmText:'确认',
+        confirmColor:'#2d8cf0',
+        cancelText:'取消',
+        content: '是否确认预约？',
+        success(res) {
+          if (res.confirm) {
+            console.log('当前状态变成待练车')
             console.log(res)
-        })
+            res.states='待练车'
+          } else if (res.cancel) {
+           console.log('用户点击了取消')
+          }
+        }
+      })
      },
      handleClick2(){
         this.$fly.request({
