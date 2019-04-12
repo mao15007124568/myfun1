@@ -1,5 +1,6 @@
 {
     "usingComponents": {
-      "i-panel": "../../../static/dist/panel/index"
+      "i-panel": "../../../static/dist/panel/index",
+      "i-card": "../../../static/dist/card/index"
   }
 }

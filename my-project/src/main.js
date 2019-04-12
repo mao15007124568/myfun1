@@ -9,3 +9,8 @@ App.mpType = 'app'
 
 const app = new Vue(App)
 app.$mount()
+
+//调用微信小程序的数据库
+wx.cloud.init({
+    traceUser: true
+})
