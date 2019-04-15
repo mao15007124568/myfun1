@@ -24,16 +24,13 @@ export default {
   },
 
   created() {
-      fly.post('/News', {
-      news: '今天天气挺好',
-      schoolNum: '2'
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      this.$fly.request({
+            method:"get", //post/get 请求方式
+            url:"http://1.027365.net:88/Car/all/1?type=string&value=string",
+          }).then(res =>{
+            this.action = res.data;
+            console.log(res)
+        })
   },
 
   methods: {

@@ -70,13 +70,7 @@
       })
      },
      handleClick2(){
-        this.$fly.request({
-            method:"get", //post/get 请求方式
-            url:"http://1.027365.net:88/Car",
-            body:{}
-          }).then(res =>{
-            console.log(res)
-        })
+        
      }
     },
   }
