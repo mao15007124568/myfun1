@@ -27,6 +27,7 @@
    
     data() {
       return {
+        
         states: '未预约',
         number1: '14',
         number2: '23',
@@ -49,6 +50,8 @@
     methods: {
      handleClick(detail){
        console.log(detail)
+       const _this = this;
+       console.log(_this);
        wx.showModal({
         title: '预约确认',
         confirmText:'确认',
@@ -68,8 +71,8 @@
      },
      handleClick2(){
         this.$fly.request({
-            method:"post", //post/get 请求方式
-            // url:"/mms/country/queryValidZoneListForMallHome",
+            method:"get", //post/get 请求方式
+            url:"http://1.027365.net:88/Car",
             body:{}
           }).then(res =>{
             console.log(res)

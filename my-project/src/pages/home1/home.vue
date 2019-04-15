@@ -1,32 +1,8 @@
 <template>
     <div>
-    <swiper
-    :indicator-dots="indicatorDots"
-    :autoplay="autoplay"
-    :interval="interval"
-    :duration="duration"
-    >
-    <block v-for="item in imgUrls" :key="item">
-        <swiper-item>
-        <image :src="item" class="slide-image" width="600" height="150" />
-        </swiper-item>
-    </block>
-    </swiper>
-
-
-    <i-card title="预约" extra="进入" i-class="re_card" @click="move">
-    <view slot
-    ="content">预约即可享受免等待练车服务</view>
-    <view>查看预约</view>
-    <view slot="footer" @click="move">查看科目二驾考规则</view>
-    </i-card>
-
-    <i-card title="详情" extra="进入" i-class="re_card" @click="move">
-    <view slot="content">可实时查看驾校练车状态</view>
-    <view>查看预约</view>
-    <view slot="footer">尾部内容</view>
-    </i-card>
-
+    <i-panel v-for="item in action" :key="item" title="请输入你想发送的通知">
+        <i-input :value="item.news" title="通知" autofocus placeholder="通知" />
+    </i-panel>
     <i-card title="预约" extra="进入" i-class="re_card" @click="move">
     <view slot="content">预约即可享受免等待练车服务</view>
     <view>查看预约</view>
@@ -39,50 +15,29 @@
     <view slot="footer">尾部内容</view>
     </i-card>
 
-    <i-card title="预约" extra="进入" i-class="re_card" @click="move">
-    <view slot="content">预约即可享受免等待练车服务</view>
-    <view>查看预约</view>
-    <view slot="footer" @click="move">查看科目二驾考规则</view>
-    </i-card>
-
-    <i-card title="详情" extra="进入" i-class="re_card" @click="move">
-    <view slot="content">可实时查看驾校练车状态</view>
-    <view>查看预约</view>
-    <view slot="footer">尾部内容</view>
-    </i-card>
-
-    <!-- <i-button @click="toggleLeft1" type="ghost">左边弹出1</i-button> -->
-    <!-- <i-drawer mode="left" :visible="showLeft1" @close="toggleLeft1">
-        <view class="demo-container">
-            单击遮罩层关闭
-        </view>
-    </i-drawer> -->
-
-    <i-button bind:click="handleClick" type="primary">查看科二驾考规则</i-button>
     </div>
 </template>
 
 <script>
 export default {
     data:{
-        current: '苹果',
-        position: 'left',
-        showLeft1: false,
-        imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?'
-    ],
-    indicatorDots: false,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000
+       return:{
+           action:[]
+       }
+    },
+    created(){
+        this.$fly.request({
+            method:"post", //post/get 请求方式
+            url:"http://1.027365.net:88/News/${schoolNum}/1",
+          }).then(res =>{
+            console.log(res)
+            console.log(res.data)
+            this.action = res.data
+        })
     },
     methods:{
-        toggleLeft1() {
-        this.setData({
-            showLeft1: !this.data.showLeft1
-          });
+        start(){
+            
         },
         move(){
             wx.navigateTo({
@@ -101,5 +56,7 @@ export default {
 div >>> .re_card {
     margin-top:20px;
 }
+
+._swiper /deep/ ._swiper-item image { width:90%;display:block;margin:2px auto;}
 </style>
 

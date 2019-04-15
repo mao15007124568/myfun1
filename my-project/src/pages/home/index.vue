@@ -98,5 +98,7 @@ export default {
 div >>> .re_card {
     margin-top:20px;
 }
+
+._swiper /deep/ ._swiper-item image { width:90%;display:block;margin:2px auto;}
 </style>
 

@@ -58,9 +58,10 @@
         })
       },
       toHome(){
-          wx.switchTab({
-          url: '/pages/home1/main'
+          wx.navigateTo({
+          url: '/pages/home1/main',
         })
+        console.log('跳转到驾校首页')
       }
       },
   }
