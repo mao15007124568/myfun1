@@ -8,7 +8,8 @@
     "pages/mine1/main",
     "pages/register/main",
     "pages/register1/main",
-    "pages/status/main"
+    "pages/status/main",
+    "pages/map/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,7 +30,7 @@
       "selectedIconPath": "static/tabs/首页.png"
     },{
       "text": "地图",
-      "pagePath": "pages/home/main",
+      "pagePath": "pages/map/main",
       "iconPath": "static/tabs/首页 (1).png",
       "selectedIconPath": "static/tabs/首页.png"
     },{
