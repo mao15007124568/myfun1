@@ -8,7 +8,7 @@
         :controls="controls"
         @controltap="controltap"
         :markers="markers"
-        @markertap="markertap(markertap($event))"
+        @markertap="markertap"
         :polyline="polyline"
         @regionchange="regionchange"
         show-location
@@ -68,7 +68,7 @@
         console.log(e.type)
       },
       markertap(event) {
-        console.log(event)
+        console.log(e.markerId)
       },
       controltap(e) {
         console.log(e.controlId)
