@@ -63,6 +63,9 @@
             console.log('当前状态变成待练车')
             console.log(res)
             res.states='待练车'
+            wx.navigateTo({
+              url: '/pages/manareserve/main',
+            })
           } else if (res.cancel) {
            console.log('用户点击了取消')
           }

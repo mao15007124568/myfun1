@@ -9,10 +9,9 @@ Vue.prototype.$http = fly
 Vue.config.productionTip = false
 App.mpType = 'app'
 
-wx.cloud.init({
-    env: 'myq-acdb',
-    traceUser: true
-})
+// wx.cloud.init({
+//     traceUser: true
+// })
 
 const app = new Vue(App)
 app.$mount()

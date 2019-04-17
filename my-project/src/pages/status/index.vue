@@ -1,7 +1,7 @@
 <template>
   <div>
     <i-panel title="驾校车辆详情">
-      <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor" thumb="cloud://myq-acdb.6d79-myq-acdb/aodi.jpg">
+      <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor">
           <view slot="content">剩余座位数：{{item.carLeftSeat}}</view>
           <view slot="footer">车辆颜色：{{item.carColor}}</view>
       </i-card>

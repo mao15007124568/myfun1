@@ -57,13 +57,19 @@
             }
         })
       },
+      
       toHome(){
+        console.log(this.$root.value2)
+        // if(this.$root.value2!=''){
           wx.navigateTo({
           url: '/pages/home1/main',
         })
         console.log('跳转到驾校首页')
+        // }else{
+        //   console.log('您输入的注册信息不能为空')
+        // }
       }
-      },
+    },
   }
 
 </script>
