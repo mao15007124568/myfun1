@@ -2,15 +2,18 @@ import Vue from 'vue'
 import App from './App'
 import '../static/css/weui.css'
 
-import fly from './utils/request'
-Vue.prototype.$fly = fly
+var Fly = require('flyio/dist/npm/wx')
+var fly = new Fly()
+Vue.prototype.$http = fly
 
 Vue.config.productionTip = false
 App.mpType = 'app'
 
+wx.cloud.init({
+    env: 'myq-acdb',
+    traceUser: true
+})
+
 const app = new Vue(App)
 app.$mount()
 
-// wx.cloud.init({
-//     traceUser: true
-// })

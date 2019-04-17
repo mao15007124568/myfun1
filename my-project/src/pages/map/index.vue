@@ -12,7 +12,7 @@
         :polyline="polyline"
         @regionchange="regionchange"
         show-location
-        style="width: 100%; height: 100%px;"
+        style="width: 100%; height: 100%;"
       ></map>
     </div>
 
@@ -28,7 +28,7 @@
     data() {
       return {
        markers: [{
-          iconPath: '/resources/others.png',
+          iconPath: '/tabs/aodi.png',
           id: 0,
           latitude: 23.099994,
           longitude: 113.324520,
@@ -49,7 +49,7 @@
         }],
         controls: [{
           id: 1,
-          iconPath: '/resources/location.png',
+          iconPath: '/tabs/aodi.png',
           position: {
             left: 0,
             top: 300 - 50,
@@ -81,7 +81,8 @@
 </script>
 
 <style>
-  
+ body,html{height:100%}
+
 
 </style>
 

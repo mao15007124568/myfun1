@@ -24,13 +24,20 @@ export default {
   },
 
   created() {
-      this.$fly.request({
-            method:"get", //post/get 请求方式
-            url:"http://1.027365.net:88/Car/all/1?type=string&value=string",
-          }).then(res =>{
-            this.action = res.data;
-            console.log(res)
-        })
+      // this.$fly.request({
+      //       method:"get", //post/get 请求方式
+      //       url:"http://1.027365.net:88/Car/all/1?type=string&value=string",
+      //     }).then(res =>{
+      //       this.action = res.data;
+      //       console.log(res)
+      //   })
+      this.$http.get('http://1.027365.net:88/Car/all/1', 'type').then((res)=>{
+        console.log('res', res)
+        this.action = res.data.data
+      }).catch(err=>{
+        console.log(err)
+      })
+
   },
 
   methods: {

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "预约管理",
+    "usingComponents": {
+        "i-tabs": "../../../static/dist/tabs/index",
+        "i-tab": "../../../static/dist/tab/index"
+    }
+}
