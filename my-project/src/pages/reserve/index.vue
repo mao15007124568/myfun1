@@ -1,17 +1,15 @@
 <template>
-  <div class="container">
+  <div>
       <i-panel title="标题">
           <view style="padding: 15px;">当前我的状态：{{states}}</view>
-          <view style="padding: 15px;">今日还剩余预约号：{{number1}}</view>
-          <view style="padding: 15px;">今日已预约：{{number2}}</view>
-          <view style="padding: 15px;">排在您前面的练车人数:{{number3}}</view>
-          
-          <div class="all_button">
-          <i-button i-class="re_button" @click="handleClick" type="primary" shape="circle" size="small">点击预约</i-button>
-          <i-button  i-class="re_button" @click="handleClick2" type="primary" shape="circle" size="small">取消预约</i-button>
-          </div>
-
-          
+          <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor">
+              <view slot="content">剩余座位数：{{item.carLeftSeat}}
+               <i-button i-class="re_button"  @click="handleClick" type="primary" size="small">点击预约</i-button>
+              </view>
+              
+              <view slot="footer">车辆颜色：{{item.carColor}}</view>
+          </i-card>
+         
       </i-panel>
 
   </div>
@@ -32,6 +30,7 @@
         number1: '14',
         number2: '23',
         number3: '4',
+        action:[],
         actions: [
             {
                 name: '取消'
@@ -45,7 +44,12 @@
       }
     },
     created() {
-      
+       this.$http.get('http://1.027365.net:88/Car/all/1', 'type').then((res)=>{
+        console.log('res', res)
+        this.action = res.data.data
+      }).catch(err=>{
+        console.log(err)
+      })
     },
     methods: {
      handleClick(detail){
@@ -59,10 +63,11 @@
         cancelText:'取消',
         content: '是否确认预约？',
         success(res) {
+         
           if (res.confirm) {
             console.log('当前状态变成待练车')
-            console.log(res)
-            res.states='待练车'
+            // console.log(res)
+            // res.states='待练车'
             wx.navigateTo({
               url: '/pages/manareserve/main',
             })
@@ -86,10 +91,9 @@
     margin:20px auto;
   }
   div >>> .re_button {
-    width:100px;
-    float:left;
-    align:center;
-    margin-right:10px;
+    width:90px;
+    float:right;
+    margin-left:10px;
 }
 </style>
 

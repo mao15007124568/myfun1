@@ -10,7 +10,9 @@
     "pages/register1/main",
     "pages/status/main",
     "pages/map/main",
-    "pages/manareserve/main"
+    "pages/manareserve/main",
+    "pages/newreserve/main",
+    "pages/historyreserve/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

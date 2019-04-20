@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "首页",
+    "navigationBarTitleText":"首页",
     "usingComponents":{
     "i-notice-bar": "../../../static/dist/notice-bar/index",
     "i-icon": "../../../static/dist/icon/index",

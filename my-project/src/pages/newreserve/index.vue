@@ -1,0 +1,40 @@
+<template>
+  <div>
+     <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor">
+          <view slot="content">剩余座位数：{{item.carLeftSeat}}
+            <i-button @click="handleClick" type="primary" size="small">Primary</i-button>
+          </view>
+          <view slot="footer">车辆颜色：{{item.carColor}}</view>
+      </i-card>
+  </div>
+</template>
+
+<script>
+
+export default {
+  data () {
+    return {
+      action:[]
+    }
+  },
+
+  created() {
+      this.$http.get('http://1.027365.net:88/Car/all/1', 'type').then((res)=>{
+        console.log('res', res)
+        this.action = res.data.data
+      }).catch(err=>{
+        console.log(err)
+      })
+
+  },
+  methods: {
+    
+  }
+}
+</script>
+
+<style scoped>
+ div >>> .re_card {
+    margin-top:20px;
+}
+</style>

@@ -1,29 +1,42 @@
 <template>
+  <div>
   <div class="test">
       <div class="testNav">
         <div
           :class="{'selected':tab === 1,'testTitle':true}"
           @click="changTab(1)"
         >近期预约
-        
         </div>
+
         <div
           :class="{'selected':tab === 2,'testTitle':true}"
           @click="changTab(2)"
-        >历史预约</div>
+        >历史预约
+        </div>
       </div>
+      
     </div>
-
+    <div>
+        <newreserve v-if="tab==1"></newreserve>
+        <historyreserve v-if="tab==2"></historyreserve>  
+    </div>
+    </div>
 </template>
 
 <script>
+  import  newreserve  from '@/pages/newreserve/index.vue'
+  import historyreserve from '@/pages/historyreserve/index'
   
 
   export default {
      data() {
         return {
-        tab: 1
-        };
+        tab: 1,
+        }
+    },
+    components: {
+      newreserve,
+      historyreserve
     },
     methods: {
         changTab(index) {

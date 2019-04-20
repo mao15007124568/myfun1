@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "预约",
   "usingComponents": {
+    "i-card":"../../../static/dist/card/index",
     "i-button": "../../../static/dist/button/index",
     "i-modal": "../../../static/dist/modal/index"
 }

@@ -1,0 +1,8 @@
+{
+    "usingComponents":{
+    "i-card": "../../../static/dist/card/index",
+    "i-button": "../../../static/dist/button/index"
+    }
+}
+
+

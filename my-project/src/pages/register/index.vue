@@ -10,13 +10,15 @@
       <i-panel title="基础用法">
           <i-input :value="value1" type="text" title="姓名" autofocus placeholder="名字" />
           <i-input :value="value2" type="number" title="手机号" placeholder="请输入手机号" />
+          <picker @change="bindPickerChange"  v-bind:value="array[index]" :range="array">
+              <view class="picker">
+                请选择所在的驾校：{{array[index]}}
+              </view>
+         </picker>
       </i-panel>
       
       <i-button i-class="btn" @click="toHome" type="primary"  shape="circle">进入</i-button>
     </div>
-
-   
-
 </template>
 
 <script>
@@ -26,18 +28,21 @@
    
     data() {
       return {
+        array: ['学长驾校', '湖大驾校', '蓝星驾校', '学子驾校'],
+        index: 0,
         value1: '',
         value2: '',
-        userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-        }
+       userInfo:{}
       }
     },
     components: {
       
     },
     methods: {
+      bindPickerChange(e) {
+      console.log('picker发送选择改变，携带值为', e.mp.detail.value)
+      this.index=e.mp.detail.value
+  },
     toHome(){
         wx.switchTab({
         url: '/pages/home/main'

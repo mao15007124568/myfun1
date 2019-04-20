@@ -1,19 +1,19 @@
 <template>
   <div>
       <map
-        id="map"
-        longitude="113.324520"
-        latitude="23.099994"
-        scale="14"
-        :controls="controls"
-        @controltap="controltap"
-        :markers="markers"
-        @markertap="markertap"
-        :polyline="polyline"
-        @regionchange="regionchange"
-        show-location
-        style="width: 100%; height: 100%;"
-      ></map>
+      id="map"
+      longitude="113.324520"
+      latitude="23.099994"
+      scale="14"
+      :controls="controls"
+      @controltap="controltap"
+      :markers="markers"
+      @markertap="markertap"
+      :polyline="polyline"
+      @regionchange="regionchange"
+      show-location
+      style="width: 100%; height: 600px;"
+    ></map>
     </div>
 
    
@@ -28,7 +28,7 @@
     data() {
       return {
        markers: [{
-          iconPath: '/tabs/aodi.png',
+          iconPath: '',
           id: 0,
           latitude: 23.099994,
           longitude: 113.324520,
@@ -49,7 +49,7 @@
         }],
         controls: [{
           id: 1,
-          iconPath: '/tabs/aodi.png',
+          iconPath: '../../static/images/user.png',
           position: {
             left: 0,
             top: 300 - 50,
