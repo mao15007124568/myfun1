@@ -6,10 +6,9 @@
       </view>
       <open-data type="userNickName"></open-data>
       </view>
-
-      <i-panel title="基础用法">
-          <i-input :value="userNickname" type="textarea" title="姓名" autofocus placeholder="名字" />
-          <i-input :value="userPhone" type="number" title="手机号" placeholder="请输入手机号" />
+      <i-panel title="基本信息">
+          姓名：<input type="text" v-model="userNickname">
+          手机号码：<input type="text" v-model="userPhone">
           <picker  @change="bindPickerChange"  v-bind:value="array[index]" :range="array">
               <view class="picker">
                 请选择所在的驾校：{{array[index]}}
@@ -57,18 +56,16 @@
       {
         id: '',
         userNum: "",
-        userNickname: "111",
-        userSchoolNum: "",
-        userPhone: "",
+        userNickname: this.userNickname,
+        userSchoolNum: this.arrary[index],
+        userPhone: this.userPhone,
         userCoach: ""
       }).then((res)=>{
         console.log('res', res)
-        // this.action = res.data.data
         console.log("添加成功")
       }).catch(err=>{
         console.log(err)
       })
-     
     },
     
     }
