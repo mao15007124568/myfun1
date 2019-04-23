@@ -31,7 +31,7 @@ export default {
       //       this.action = res.data;
       //       console.log(res)
       //   })
-      this.$http.get('http://1.027365.net:88/Car/all/1', 'type').then((res)=>{
+      this.$http.get('http://1.027365.net:88/Car/all/1').then((res)=>{
         console.log('res', res)
         this.action = res.data.data
       }).catch(err=>{

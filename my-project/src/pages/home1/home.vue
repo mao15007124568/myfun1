@@ -6,7 +6,7 @@
     <view slot="footer" @click="move">发送通知</view>
     </i-card> -->
 
-    <div class="weui-panel weui-panel_access">
+    <!-- <div class="weui-panel weui-panel_access">
       <div class="weui-panel__hd">添加普通车牌</div>
       <div class="weui-panel__bd">
         <div class="weui-media-box weui-media-box_appmsg">
@@ -44,7 +44,13 @@
       <div class="weui-flex" v-for="(char, i) in provinceTxt" :key="i">
         <button @click="clickKeyboard(txt, $event)" class="weui-flex__item" v-for="(txt, j) in char.name" :key="j">{{txt}}</button>
       </div>
-    </div>
+    </div> -->
+    <i-tab-bar :current="current" color="#f759ab" @change="handleChange">
+      <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="首页"></i-tab-bar-item>
+      <i-tab-bar-item key="group" icon="group" current-icon="group_fill" title="朋友"></i-tab-bar-item>
+      <i-tab-bar-item key="remind" icon="remind" current-icon="remind_fill" title="通知"></i-tab-bar-item>
+      <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
+  </i-tab-bar>
   </div>
 
 </template>
@@ -53,6 +59,7 @@
 export default {
     data:{
        return:{
+         current: 'homepage',
            provinceTxt: [{
             name: ['鲁', '京', '沪', '浙', '苏', '闽', '赣', '晋', '吉']
           },
@@ -110,6 +117,9 @@ export default {
       // })
     },
     methods:{
+        handleChange (e) {
+            this.current = e.mp.detail.key
+        },
         start(){
             
         },

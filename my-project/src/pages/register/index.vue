@@ -8,9 +8,9 @@
       </view>
 
       <i-panel title="基础用法">
-          <i-input :value="value1" type="text" title="姓名" autofocus placeholder="名字" />
-          <i-input :value="value2" type="number" title="手机号" placeholder="请输入手机号" />
-          <picker @change="bindPickerChange"  v-bind:value="array[index]" :range="array">
+          <i-input :value="userNickname" type="textarea" title="姓名" autofocus placeholder="名字" />
+          <i-input :value="userPhone" type="number" title="手机号" placeholder="请输入手机号" />
+          <picker  @change="bindPickerChange"  v-bind:value="array[index]" :range="array">
               <view class="picker">
                 请选择所在的驾校：{{array[index]}}
               </view>
@@ -32,7 +32,13 @@
         index: 0,
         value1: '',
         value2: '',
-       userInfo:{}
+        userInfo:{},
+        id: '',
+        userNum: "",
+        userNickname: "",
+        userSchoolNum: "",
+        userPhone: "",
+        userCoach: ""
       }
     },
     components: {
@@ -47,10 +53,25 @@
         wx.switchTab({
         url: '/pages/home/main'
       })
-    }
+      this.$http.post('http://1.027365.net:88/User', 
+      {
+        id: '',
+        userNum: "",
+        userNickname: "111",
+        userSchoolNum: "",
+        userPhone: "",
+        userCoach: ""
+      }).then((res)=>{
+        console.log('res', res)
+        // this.action = res.data.data
+        console.log("添加成功")
+      }).catch(err=>{
+        console.log(err)
+      })
+     
     },
     
-   
+    }
   }
 
 </script>
