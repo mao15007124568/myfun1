@@ -61,9 +61,9 @@ export default {
         showLeft1: false,
         notice:'今日练车人数非常少，小伙伴们快来练车哟',
         imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+      'http://img2.3lian.com/2014/f4/51/d/45.jpg',
+      'http://img5.imgtn.bdimg.com/it/u=3215801665,2249523698&fm=26&gp=0.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556288495277&di=d20959aa4114e51923b8615379563280&imgtype=0&src=http%3A%2F%2F00.minipic.eastday.com%2F20161222%2F20161222195443_edba2fcc5efac307e33f2d979fc77a33_4.jpeg'
     ],
     indicatorDots: false,
     autoplay: true,
@@ -99,6 +99,7 @@ div >>> .re_card {
     margin-top:20px;
 }
 
+div /deep/._swiper {height:190px}
 ._swiper /deep/ ._swiper-item image { width:90%;display:block;margin:2px auto;}
 </style>
 

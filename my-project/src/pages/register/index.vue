@@ -57,7 +57,7 @@
         id: '',
         userNum: "",
         userNickname: this.userNickname,
-        userSchoolNum: this.arrary[index],
+        userSchoolNum: '',
         userPhone: this.userPhone,
         userCoach: ""
       }).then((res)=>{

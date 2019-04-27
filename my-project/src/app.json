@@ -12,7 +12,8 @@
     "pages/map/main",
     "pages/manareserve/main",
     "pages/newreserve/main",
-    "pages/historyreserve/main"
+    "pages/historyreserve/main",
+    "pages/YearProgess/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
