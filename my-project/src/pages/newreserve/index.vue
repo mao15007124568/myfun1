@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-year-progess></v-year-progess>
+    <VYearProgess></VYearProgess>
 
      <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor">
           <view slot="content">剩余座位数：{{item.carLeftSeat}}
@@ -22,13 +22,15 @@ export default {
       clearTimer: false
     }
   },
-
+  components: {
+      VYearProgess,
+  },
   created() {
-      this.$mp.page({
-            targetTime: new Date().getTime() + 6430000,
-            targetTime1: new Date().getTime() + 86430000,
-            targetTime2: new Date().getTime() + 10000
-      }),
+      // this.$mp.page({
+      //       targetTime: new Date().getTime() + 6430000,
+      //       targetTime1: new Date().getTime() + 86430000,
+      //       targetTime2: new Date().getTime() + 10000
+      // }),
       this.$http.get('http://1.027365.net:88/Car/all/1', 'type').then((res)=>{
         console.log('res', res)
         this.action = res.data.data
