@@ -13,7 +13,7 @@
     "pages/manareserve/main",
     "pages/newreserve/main",
     "pages/historyreserve/main",
-    "pages/YearProgess/main"
+    "pages/VYearProgess/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
