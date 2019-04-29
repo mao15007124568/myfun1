@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import '../static/css/weui.css'
+import '../static/weui.css'
 
 var Fly = require('flyio/dist/npm/wx')
 var fly = new Fly()

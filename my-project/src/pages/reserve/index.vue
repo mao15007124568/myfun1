@@ -71,6 +71,34 @@
             wx.navigateTo({
               url: '/pages/manareserve/main',
             })
+            //发送模板信息
+            _this.$http.get('https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=ACCESS_TOKEN', 
+             {
+                touser: "OPENID",
+                template_id: "TEMPLATE_ID",
+                page: "index",
+                form_id: "FORMID",
+                data: {
+                keyword1: {
+                    "value": "339208499"
+                  },
+                keyword2: {
+                    "value": "2015年01月05日 12:30"
+                  },
+                keyword3: {
+                    "value": "腾讯微信总部"
+                  },
+                keyword4: {
+                    "value": "广州市海珠区新港中路397号"
+                  }
+                },
+                emphasis_keyword: "keyword1.DATA"
+              }).then((res)=>{
+                console.log('res', res)
+                console.log("添加成功")
+              }).catch(err=>{
+                console.log(err)
+              })
           } else if (res.cancel) {
            console.log('用户点击了取消')
           }

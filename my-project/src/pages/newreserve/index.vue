@@ -1,6 +1,5 @@
 <template>
   <div>
-    <YearProgess></YearProgess>
 
      <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor">
           <view slot="content">剩余座位数：{{item.carLeftSeat}}
@@ -12,7 +11,6 @@
 </template>
 
 <script>
-import YearProgess from '@/pages/YearProgess/index'
 
 export default {
   data () {
@@ -23,7 +21,6 @@ export default {
     }
   },
   components: {
-      YearProgess,
   },
   created() {
       // this.$mp.page({
@@ -40,7 +37,6 @@ export default {
 
   },
   components:{
-    VYearProgess
   },
   methods: {
     

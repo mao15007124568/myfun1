@@ -20,6 +20,33 @@ export default {
     }
   },
   created(){
+    
+        var _this = this;
+        wx.login({
+			  success(res) {
+			  	  	if (res.code) {
+
+              // 发起网络请求
+              let data={
+                appid:"wx2be7497fc8ee40a0",
+                secret:'a447e484f3a3e0a3c389a06dc9cc5156',
+                // js_code:req.query.code,
+                grant_type:'authorization_code'
+              };
+				      wx.request({
+				        url: 'https://api.weixin.qq.com/sns/jscode2session?appid='+data.appid+'&secret='+data.secret
+            +'&js_code='+data.js_code+'&grant_type=authorization_code',
+				        data: {
+				            code:res.code
+				        },
+              })
+              
+				    } else {
+				      console.log('登录失败！' + res.errMsg)
+				    }
+			  
+			  }
+			})
     this.getUserInfo();
     wx.showModal({
     title: '提示',

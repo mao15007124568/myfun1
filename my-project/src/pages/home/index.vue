@@ -39,24 +39,6 @@
 <script>
 export default {
     data:{
-        fruit: [
-            {
-            id: 0,
-            name: '未预约',
-        }, {
-            id: 1,
-            name: '已预约',
-        }, {
-            id: 2,
-            name: '待练车'
-        }, {
-            id: 3,
-            name: '正在练车'
-        }, {
-            id: 4,
-            name: '练车完成',
-        }],
-        current: '苹果',
         position: 'left',
         showLeft1: false,
         notice:'今日练车人数非常少，小伙伴们快来练车哟',
@@ -69,6 +51,13 @@ export default {
     autoplay: true,
     interval: 5000,
     duration: 1000
+    },
+    created(){
+        this.$http.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET').then((res)=>{
+        console.log('res', res)
+      }).catch(err=>{
+        console.log(err)
+      })
     },
     methods:{
         toggleLeft1() {

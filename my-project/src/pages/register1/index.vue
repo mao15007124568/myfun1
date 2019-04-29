@@ -62,7 +62,7 @@
         console.log(this.$root.value2)
         // if(this.$root.value2!=''){
           wx.navigateTo({
-          url: '/pages/home1/main',
+          url: '/pages/add_car/main',
         })
         console.log('跳转到驾校首页')
         // }else{

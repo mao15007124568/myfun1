@@ -13,7 +13,7 @@
     "pages/manareserve/main",
     "pages/newreserve/main",
     "pages/historyreserve/main",
-    "pages/VYearProgess/main"
+    "pages/add_car/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
