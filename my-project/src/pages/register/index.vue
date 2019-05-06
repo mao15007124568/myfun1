@@ -6,15 +6,13 @@
       </view>
       <open-data type="userNickName"></open-data>
       </view>
-      <i-panel title="基本信息">
-          姓名：<input type="text" v-model="userNickname">
-          手机号码：<input type="text" v-model="userPhone">
-          <picker  @change="bindPickerChange"  v-bind:value="array[index]" :range="array">
+          <div class="i-input">姓名：<input type="text"  v-model="userNickname"></div>
+          <div class="i-input">手机号码：<input type="text" class="i-input" v-model="userPhone"></div>
+          <picker  @change="bindPickerChange" class="i-input" v-bind:value="array[index]" :range="array">
               <view class="picker">
                 请选择所在的驾校：{{array[index]}}
               </view>
          </picker>
-      </i-panel>
       
       <i-button i-class="btn" @click="toHome" type="primary"  shape="circle">进入</i-button>
     </div>
@@ -74,6 +72,20 @@
 </script>
 
 <style scoped>
+    div >>> .i-input {
+      padding:7px 15px;
+      color:#495060;
+      position:relative;
+      padding:12px 15px;
+      display:flex;
+      background:#fff;
+      align-items:center;
+      line-height:1.4;
+      font-size:38rpx;
+      overflow:hidden;
+
+    }
+
    div >>> .btn{
      width:85%;
      margin:60px auto;

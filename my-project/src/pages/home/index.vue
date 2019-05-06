@@ -43,9 +43,10 @@ export default {
         showLeft1: false,
         notice:'今日练车人数非常少，小伙伴们快来练车哟',
         imgUrls: [
-      'http://img2.3lian.com/2014/f4/51/d/45.jpg',
-      'http://img5.imgtn.bdimg.com/it/u=3215801665,2249523698&fm=26&gp=0.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556288495277&di=d20959aa4114e51923b8615379563280&imgtype=0&src=http%3A%2F%2F00.minipic.eastday.com%2F20161222%2F20161222195443_edba2fcc5efac307e33f2d979fc77a33_4.jpeg'
+      '/static/images/1.jfif',
+      '/static/images/2.jfif',
+      '/static/images/3.jfif',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557395187&di=ea5dd9b359b30ec505d1c82a82702f61&imgtype=jpg&er=1&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FU9VgtwTyy7mYpXVYHmFhVpd7Ey3SGXCVZHfzhZ3R4M8NTbdoNIyoXAYAkNcribIMCvpULOcyqCobaYZTcIfSCAQ%2F640%3Fwx_fmt%3Djpeg'
     ],
     indicatorDots: false,
     autoplay: true,

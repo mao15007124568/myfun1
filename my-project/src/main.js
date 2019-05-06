@@ -17,3 +17,8 @@ App.mpType = 'app'
 const app = new Vue(App)
 app.$mount()
 
+wx.cloud.init({
+    env: 'myq-acdb',
+    traceUser: true
+ })
+

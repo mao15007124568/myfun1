@@ -274,7 +274,7 @@
     color: white;
     overflow: hidden;
     height: 45px;
-    bottom: 0;
+    bottom: 56rex;
     position: fixed;
   }
 
