@@ -28,7 +28,7 @@
       </div>
     </div>
     <div v-if="!isHideKeyboard && (index == 0)" class="switch" @click="switchKeyboard($event)">切换键盘</div>
-    <div class="btn" v-bind:class="checkNumber? 'check':'uncheck'" @click="applyCar('applyHours')">新增</div>
+    <div class="btn" v-bind:class="checkNumber? 'check':'uncheck'" @click="applyCar()">新增</div>
     <div v-if="!isHideKeyboard" class="board" style="width: 100%">
       <div v-if="isSwitch && index !== 6" class="weui-flex" v-for="(char, i) in alphaTxt" :key="i">
         <button @click="clickKeyboard(txt, $event)" class="weui-flex__item" v-for="(txt, j) in char.name" :key="j">{{txt}}</button>
@@ -115,6 +115,9 @@
       }
     },
     methods: {
+      applyCar(){
+        console.log('新增车牌')
+      },
       switchKeyboard(e) {
         this.isSwitch = !this.isSwitch
       },

@@ -10,12 +10,8 @@
             授权登录
         </button>
      </view>
-
-      <i-panel title="基础用法" class="re_panel">
-          <i-input :value="value1" type="text" title="驾校名称" autofocus placeholder="请输入驾校名称" />
-          <i-input :value="value2" type="textarea" title="详细地址" placeholder="请输入详细地址(最多50字)" maxlength="50" />
-          <i-input :value="value3" type="number" title="驾校联系方式" placeholder="请输入手机号" />
-      </i-panel>
+      <div class="i-input">驾校名称：<input type="text"  v-model="schoolName"></div>
+      <div class="i-input">详细地址：<input type="text" class="i-input" v-model="schoolLocation"></div>
       
       <i-button i-class="btn" @click="toHome" type="primary"  shape="circle">进入</i-button>
     </div>
@@ -31,9 +27,8 @@
    
     data() {
       return {
-        value1: '',
-        value2: '',
-        value3: '',
+        schoolNameL:'',
+        schoolLocation:'',
         userInfo: {}
       }
     },
@@ -64,10 +59,18 @@
           wx.navigateTo({
           url: '/pages/add_car/main',
         })
-        console.log('跳转到驾校首页')
-        // }else{
-        //   console.log('您输入的注册信息不能为空')
-        // }
+        this.$http.post('http://1.027365.net:88/School', 
+      {
+        id: '',
+        schoolNum: this.schoolNum, 
+        schoolName: this.schoolName,
+        schoolLocation: this.schoolLocation
+      }).then((res)=>{
+        console.log('res', res)
+        console.log("添加成功")
+      }).catch(err=>{
+        console.log(err)
+      })
       }
     },
   }
@@ -75,6 +78,19 @@
 </script>
 
 <style scoped>
+div >>> .i-input {
+      padding:7px 15px;
+      color:#495060;
+      position:relative;
+      padding:12px 15px;
+      display:flex;
+      background:#fff;
+      align-items:center;
+      line-height:1.4;
+      font-size:38rpx;
+      overflow:hidden;
+
+    }
    div >>> .btn{
      width:85%;
      margin:60px auto;
