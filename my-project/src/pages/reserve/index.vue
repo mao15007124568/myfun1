@@ -1,12 +1,12 @@
 <template>
   <div>
-          <picker  @change="bindPickerChange" class="i-input" v-bind:value="array[index]" :range="array">
+          <picker @change="bindPickerChange" class="i-input" v-bind:value="array[index]" :range="array">
               <view class="picker">
                 请选择练车时间：{{array[index]}}
               </view>
          </picker>
           <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor">
-              <view slot="content">剩余座位数：{{item.carLeftSeat}}
+              <view slot="content">剩余座位数：{{item.time8Left}}
                <i-button i-class="re_button"  @click="handleClick" type="primary" size="small">点击预约</i-button>
               </view>
               
@@ -33,7 +33,7 @@
     data() {
       return {
         index:0,
-        array: ['9：00-10：00', '10：00-11：00', '11：00-12：00'],
+        array: ['8：00-9：00','9：00-10：00', '10：00-11：00','14：00-15：00','15：00-16：00','16：00-17：00'],
         openId: '',
         states: '未预约',
         number1: '14',
@@ -72,7 +72,11 @@
     methods: {
        bindPickerChange(e) {
             console.log('picker发送选择改变，携带值为', e.mp.detail.value)
-            this.index=e.mp.detail.value
+            // this.index=e.mp.detail.value
+            if(e.mp.detail.value==0){
+              console.log('我选择的是8:00-9:00')
+
+            }
         },
        getOpenid() {
         let that = this;

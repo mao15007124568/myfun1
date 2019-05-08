@@ -57,7 +57,7 @@
         console.log(this.$root.value2)
         // if(this.$root.value2!=''){
           wx.navigateTo({
-          url: '/pages/add_car/main',
+          url: '/pages/home1/main',
         })
         this.$http.post('http://1.027365.net:88/School', 
       {

@@ -13,7 +13,8 @@
     "pages/manareserve/main",
     "pages/newreserve/main",
     "pages/historyreserve/main",
-    "pages/add_car/main"
+    "pages/add_car/main",
+    "pages/lookCar/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

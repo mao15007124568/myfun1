@@ -2,9 +2,12 @@
 <template>
     <div>
     <br/><br/>
-    <i-notice-bar id="test" icon="systemprompt"  loop closable>
-       {{notice}}
-    </i-notice-bar>
+    <div class="notice">
+      <i-notice-bar v-for="item in action" :key="item" id="test" icon="systemprompt"  loop closable>
+       {{item.news}}
+      </i-notice-bar>
+    </div>
+    
 
     <swiper
     :indicator-dots="indicatorDots"
@@ -41,7 +44,7 @@ export default {
     data:{
         position: 'left',
         showLeft1: false,
-        notice:'今日练车人数非常少，小伙伴们快来练车哟',
+        action:[],
         imgUrls: [
       '/static/images/1.jfif',
       '/static/images/2.jfif',
@@ -54,11 +57,21 @@ export default {
     duration: 1000
     },
     created(){
-        this.$http.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET').then((res)=>{
-        console.log('res', res)
-      }).catch(err=>{
-        console.log(err)
-      })
+      //   this.$http.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET').then((res)=>{
+      //   console.log('res', res)
+      // }).catch(err=>{
+      //   console.log(err)
+      // })
+    },
+    onLoad(){
+        this.$http.get('http://1.027365.net:88/News/all/1').then((res)=>{
+          console.log('res', res)
+           this.action = res.data.data
+           console.log('这是news集合')
+           console.log(this.action)
+        }).catch(err=>{
+          console.log(err)
+        })
     },
     methods:{
         toggleLeft1() {
@@ -81,6 +94,9 @@ export default {
 </script>
 
 <style scoped>
+div >>> .notice{
+  height:72rpx !important;
+}
 .overall {
   background-color:#f8f8f9;
 }
@@ -90,6 +106,6 @@ div >>> .re_card {
 }
 
 div /deep/._swiper {height:190px}
-._swiper /deep/ ._swiper-item image { width:90%;display:block;margin:2px auto;}
+._swiper /deep/ ._swiper-item image { width:100%;display:block;margin:2px auto;}
 </style>
 
