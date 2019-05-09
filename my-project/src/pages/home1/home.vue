@@ -20,11 +20,11 @@
           <i-grid-label>查看车辆</i-grid-label>
       </i-grid-item>
     </i-grid>
-   <div class="i-input">
-       车牌号：<input type="text"  v-model="carNum">
-       车牌号：<input type="text"  v-model="carColor">
-       品牌：<input type="text"  v-model="carType">
-    </div>
+   
+    <div class="i-input">车牌号：<input type="text"  v-model="carNum"></div>
+    <div class="i-input">车辆颜色：<input type="text"  v-model="carColor"></div>
+    <div class="i-input">汽车品牌：<input type="text"  v-model="carType"></div>
+    
    <i-button @click="add" type="primary" size="large">新增车辆</i-button>
    <div class="i-input">发布通告：<input type="text" class="i-input" v-model="news"></div>
    <i-button @click="publish" type="primary" size="large">发布通告</i-button>

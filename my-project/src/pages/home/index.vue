@@ -3,8 +3,8 @@
     <div>
     <br/><br/>
     <div class="notice">
-      <i-notice-bar v-for="item in action" :key="item" id="test" icon="systemprompt"  loop closable>
-       {{item.news}}
+      <i-notice-bar id="test" icon="systemprompt" loop closable>
+       {{action}}
       </i-notice-bar>
     </div>
     
@@ -44,6 +44,7 @@ export default {
     data:{
         position: 'left',
         showLeft1: false,
+        length:null,
         action:[],
         imgUrls: [
       '/static/images/1.jfif',
@@ -66,8 +67,7 @@ export default {
     onLoad(){
         this.$http.get('http://1.027365.net:88/News/all/1').then((res)=>{
           console.log('res', res)
-           this.action = res.data.data
-           console.log('这是news集合')
+           this.action = res.data.data[0].news
            console.log(this.action)
         }).catch(err=>{
           console.log(err)
@@ -95,7 +95,7 @@ export default {
 
 <style scoped>
 div >>> .notice{
-  height:72rpx !important;
+  /* height:72rpx !important; */
 }
 .overall {
   background-color:#f8f8f9;
@@ -106,6 +106,6 @@ div >>> .re_card {
 }
 
 div /deep/._swiper {height:190px}
-._swiper /deep/ ._swiper-item image { width:100%;display:block;margin:2px auto;}
+._swiper /deep/ ._swiper-item image { width:89%;display:block;margin:2px auto;}
 </style>
 

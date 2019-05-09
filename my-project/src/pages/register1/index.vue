@@ -29,13 +29,28 @@
       return {
         schoolNameL:'',
         schoolLocation:'',
+        openid:'',
         userInfo: {}
       }
     },
     created(){
     this.getUserInfo();
    },
+   onLoad(){
+     this.getOpenid();
+   },
     methods: {
+    getOpenid() {
+      let that = this;
+      wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        console.log('云函数获取到的openid: ', res.result.userInfo.appId)
+        this.schoolNum = res.result.userInfo.appId
+        
+      }
+      })
+    },
     authSetUser (e) {
         this.userInfo=e.mp.detail.userInfo;
     },

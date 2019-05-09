@@ -4,7 +4,7 @@
               <view class="picker">
                 请选择练车时间：{{array[index]}}
               </view>
-         </picker>
+          </picker>
           <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor">
               <view slot="content">剩余座位数：{{item.time8Left}}
                <i-button i-class="re_button"  @click="handleClick" type="primary" size="small">点击预约</i-button>
@@ -12,12 +12,12 @@
               
               <view slot="footer">车辆颜色：{{item.carColor}}</view>
           </i-card>
-         <form @submit="formSubmit" report-submit="true">
+          <form @submit="formSubmit" report-submit="true">
             <view class="btn-area">
               <button form-type="submit">Submit</button>
               <button form-type="reset">Reset</button>
             </view>
-        </form>
+          </form>
 
   </div>
 
@@ -35,10 +35,6 @@
         index:0,
         array: ['8：00-9：00','9：00-10：00', '10：00-11：00','14：00-15：00','15：00-16：00','16：00-17：00'],
         openId: '',
-        states: '未预约',
-        number1: '14',
-        number2: '23',
-        number3: '4',
         action:[],
         actions: [
             {
@@ -53,13 +49,14 @@
       }
     },
     onLoad(){
-      this.$http.get('http://1.027365.net:88/Car/all/1', 'type').then((res)=>{
+      this.getOpenid();
+      this.$http.get('http://1.027365.net:88/User/getCar?userNum=wx2be7497fc8ee40a0', 'type').then((res)=>{
         console.log('res', res)
         this.action = res.data.data
       }).catch(err=>{
         console.log(err)
       })
-      this.getOpenid();
+      
       this.$http.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appId=res.result.userInfo.appId&secret=APPSECRET')
         .then((res)=>{
             console.log('这应该是access token')
@@ -84,10 +81,7 @@
         name: 'getOpenid',
         complete: res => {
           console.log('云函数获取到的openid: ', res.result.userInfo.appId)
-          // var openid = res.result.openId;
-          // that.setData({
-          // openid: openid
-          // })
+          this.userNum = res.result.userInfo.appId
         }
         })
       },
@@ -198,7 +192,6 @@ div >>> .i-input {
       line-height:1.4;
       font-size:38rpx;
       overflow:hidden;
-
     }
   .all_button{
     align:center;

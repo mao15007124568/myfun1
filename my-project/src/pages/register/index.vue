@@ -8,11 +8,11 @@
       </view>
           <div class="i-input">姓名：<input type="text"  v-model="userNickname"></div>
           <div class="i-input">手机号码：<input type="text" class="i-input" v-model="userPhone"></div>
-          <picker  @change="bindPickerChange" class="i-input" v-bind:value="array[index]" :range="array">
+          <picker @change="bindPickerChange" class="i-input" value="schoolList[index].value" :range="schoolList" :range-key="'schoolName'">
               <view class="picker">
-                请选择所在的驾校：{{array[index]}}
+                请选择所在的驾校：{{schoolList[index].schoolName}}
               </view>
-         </picker>
+          </picker>
       
       <i-button i-class="btn" @click="toHome" type="primary"  shape="circle">进入</i-button>
     </div>
@@ -25,7 +25,8 @@
    
     data() {
       return {
-        array: ['学长驾校', '湖大驾校', '蓝星驾校', '学子驾校'],
+        openid:'',
+        schoolList:[],
         index: 0,
         value1: '',
         value2: '',
@@ -41,11 +42,34 @@
     components: {
       
     },
+    onLoad(){
+      let index=''
+     this.getOpenid();
+     this.$http.get('http://1.027365.net:88/School/all/1')
+     .then((res)=>{
+        console.log('res', res)
+        this.schoolList = res.data.data
+        this.schoolName = res.data.data.value
+      }).catch(err=>{
+        console.log(err)
+      })
+    },
     methods: {
+      getOpenid() {
+      let that = this;
+      wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        console.log('云函数获取到的openid: ', res.result.userInfo.appId)
+        this.userNum = res.result.userInfo.appId
+        
+      }
+      })
+    },
       bindPickerChange(e) {
       console.log('picker发送选择改变，携带值为', e.mp.detail.value)
       this.index=e.mp.detail.value
-  },
+      },
     toHome(){
         wx.switchTab({
         url: '/pages/home/main'
@@ -53,7 +77,7 @@
       this.$http.post('http://1.027365.net:88/User', 
       {
         id: '',
-        userNum: "",
+        userNum: this.userNum,
         userNickname: this.userNickname,
         userSchoolNum: '',
         userPhone: this.userPhone,

@@ -1,73 +1,58 @@
 <template>
   <div>
-  <div class="test">
-      <div class="testNav">
-        <div
-          :class="{'selected':tab === 1,'testTitle':true}"
-          @click="changTab(1)"
-        >近期预约
-        </div>
-
-        <div
-          :class="{'selected':tab === 2,'testTitle':true}"
-          @click="changTab(2)"
-        >历史预约
-        </div>
-      </div>
-      
-    </div>
-    <div>
-        <newreserve v-if="tab==1"></newreserve>
-        <historyreserve v-if="tab==2"></historyreserve>  
-    </div>
-    </div>
+    <i-panel title="驾校车辆详情">
+      <i-card v-for="item in car" :key="item" :title="item.carNum" i-class="re_card" :extra="'汽车品牌：'+item.carType">
+          <view slot="content">汽车颜色：{{item.carColor}}
+            <i-button i-class="re_button"  @click="handleClick" type="primary" size="small">发布</i-button>
+          </view>
+          <view slot="footer">车牌号：{{item.carNum}}</view>
+      </i-card>
+    </i-panel>
+  </div>
 </template>
 
 <script>
-  import  newreserve  from '@/pages/newreserve/index.vue'
-  import historyreserve from '@/pages/historyreserve/index'
-  
 
   export default {
-     data() {
+      data() {
         return {
-        tab: 1,
+          car:[]
         }
     },
-    components: {
-      newreserve,
-      historyreserve
+    onLoad(){
+      this.$http.get('http://1.027365.net:88/Car/all/1').then((res)=>{
+        console.log('res', res)
+        this.car = res.data.data
+      }).catch(err=>{
+        console.log(err)
+      })
     },
     methods: {
-        changTab(index) {
-        this.tab = index;
+      handleClick(){
+         wx.showModal({
+        title: '发布确认',
+        confirmText:'确认',
+        confirmColor:'#2d8cf0',
+        cancelText:'取消',
+        content: '是否确认发布该车辆？',
+        success(res) {
+          if (res.confirm) {
+            console.log('已成功发布该车')
+          } else if (res.cancel) {
+           console.log('用户点击了取消')
+          }
         }
-    }
+      })
+     }
   }
-
+}
 </script>
 
-<style>
- .test {
-    width: 100%;
- }
- .testNav {
-    padding: 0 20rpx;
-    height: 80rpx;
-    line-height: 80rpx;
-    display: flex;
+<style scoped>
+ div >>> .re_button {
+    width:90px;
+    float:right;
+    margin-left:10px;
 }
-.testTitle {
-    flex: 1;
-    text-align: center;
-}
-.selected {
-    color: #2d8cf0;
-    border-bottom: 1px solid #2d8cf0;
-}
-.container {
-  
-}
-
 </style>
 
