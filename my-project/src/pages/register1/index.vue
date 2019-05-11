@@ -30,7 +30,9 @@
         schoolNameL:'',
         schoolLocation:'',
         openid:'',
-        userInfo: {}
+        userInfo: {
+          nickName:''
+        }
       }
     },
     created(){
@@ -74,18 +76,19 @@
           wx.navigateTo({
           url: '/pages/home1/main',
         })
-        this.$http.post('http://1.027365.net:88/School', 
-      {
-        id: '',
-        schoolNum: this.schoolNum, 
-        schoolName: this.schoolName,
-        schoolLocation: this.schoolLocation
-      }).then((res)=>{
-        console.log('res', res)
-        console.log("添加成功")
-      }).catch(err=>{
-        console.log(err)
-      })
+        //这一段是之后要加上的
+      //   this.$http.post('http://1.027365.net:88/School', 
+      // {
+      //   id: '',
+      //   schoolNum: this.schoolNum, 
+      //   schoolName: this.schoolName,
+      //   schoolLocation: this.schoolLocation
+      // }).then((res)=>{
+      //   console.log('res', res)
+      //   console.log("添加成功")
+      // }).catch(err=>{
+      //   console.log(err)
+      // })
       }
     },
   }

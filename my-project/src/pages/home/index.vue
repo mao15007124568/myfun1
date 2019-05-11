@@ -42,7 +42,9 @@
 <script>
 export default {
     data:{
+        openid:'',
         position: 'left',
+        userNum:'',
         showLeft1: false,
         length:null,
         action:[],
@@ -65,15 +67,32 @@ export default {
       // })
     },
     onLoad(){
-        this.$http.get('http://1.027365.net:88/News/all/1').then((res)=>{
-          console.log('res', res)
-           this.action = res.data.data[0].news
-           console.log(this.action)
-        }).catch(err=>{
-          console.log(err)
-        })
+        this.getOpenid();
+        // var userNum = this.userNum;
+        
     },
     methods:{
+          getOpenid() {
+          let that = this;
+          wx.cloud.callFunction({
+          name: 'getOpenid',
+          complete: res => {
+            console.log('云函数获取到的openid: ', res.result.userInfo.appId)
+            this.userNum = res.result.userInfo.appId
+            this.$http.get('http://1.027365.net:88/User/getNewInfo?userNum='+this.userNum+'').then((res)=>{
+              console.log('res', res)
+               this.action = res.data[0].news
+              console.log(res.data)
+              //  console.log(this.action)
+            }).catch(err=>{
+              console.log(err)
+            })
+            console.log('userNum的值是多少')
+            console.log(this.userNum)
+          }
+          })
+          
+        },
         toggleLeft1() {
         this.setData({
             showLeft1: !this.data.showLeft1

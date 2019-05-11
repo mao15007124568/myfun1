@@ -72,7 +72,7 @@
             // this.index=e.mp.detail.value
             if(e.mp.detail.value==0){
               console.log('我选择的是8:00-9:00')
-
+              
             }
         },
        getOpenid() {

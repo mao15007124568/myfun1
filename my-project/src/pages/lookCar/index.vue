@@ -1,11 +1,19 @@
 <template>
   <div>
     <i-panel title="驾校车辆详情">
-      <i-card v-for="item in car" :key="item" :title="item.carNum" i-class="re_card" :extra="'汽车品牌：'+item.carType">
-          <view slot="content">汽车颜色：{{item.carColor}}
+      <i-card v-for="item in car" :key="item" :title="item.carNum" i-class="re_card" :extra="item.carType">
+          <view slot="content">
+            <picker @change="bindPickerChange" class="i-input" value="schoolList[index].value" :range="schoolList" :range-key="'schoolName'">
+              <view class="picker">
+                请选择所在的驾校：{{schoolList[index].schoolName}}
+              </view>
+            </picker>
             <i-button i-class="re_button"  @click="handleClick" type="primary" size="small">发布</i-button>
           </view>
-          <view slot="footer">车牌号：{{item.carNum}}</view>
+          <view slot="footer">
+            
+            汽车颜色：{{item.carColor}}
+           </view>
       </i-card>
     </i-panel>
   </div>

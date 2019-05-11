@@ -26,7 +26,7 @@
     <div class="i-input">汽车品牌：<input type="text"  v-model="carType"></div>
     
    <i-button @click="add" type="primary" size="large">新增车辆</i-button>
-   <div class="i-input">发布通告：<input type="text" class="i-input" v-model="news"></div>
+   <div class="i-input">发布通告：<input type="text" placeholder="请输入通知" v-model="news"></div>
    <i-button @click="publish" type="primary" size="large">发布通告</i-button>
   </div>
 </template>
@@ -35,12 +35,27 @@
 export default {
     data:{
        return:{
+           openid:'',
+           news:''
        }
     },
     created(){
       
     },
+    onLoad(){
+     this.getOpenid();
+    },
     methods:{
+        getOpenid() {
+            let that = this;
+            wx.cloud.callFunction({
+            name: 'getOpenid',
+            complete: res => {
+                this.schoolNum = res.result.userInfo.appId
+              }
+            })
+            // this.callBack(this.schoolNum)
+        },
         handleClick(){
             wx.navigateTo({
                 url: '/pages/lookCar/main'
@@ -51,7 +66,7 @@ export default {
             {
                 id: '',
                 carNum: this.carNum,
-                carSchoolNum: this.carSchoolNum,
+                carSchoolNum: this.schoolNum,
                 carColor: this.carColor,
                 carType: this.carType,
             }).then((res)=>{
@@ -62,18 +77,19 @@ export default {
             })
         },
         publish(){
-            this.$http.post('http://1.027365.net:88/News', 
+            this.$http.put('http://1.027365.net:88/News/addnews?schoolNum='+this.schoolNum+'&news='+this.news+'&newsSituation=发布', 
             {
-                id: '',
-                news:this.news ,
-                schoolNum: ""
+                // id: '',
+                // news:this.news ,
+                // schoolNum: this.schoolNum,
+                // newsSituation:'发布'
             }).then((res)=>{
                 console.log('res', res)
                 console.log("添加成功")
             }).catch(err=>{
                 console.log(err)
             })
-        }
+        },
     }
 }
 </script>
