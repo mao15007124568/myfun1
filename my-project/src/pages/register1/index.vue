@@ -10,10 +10,10 @@
             授权登录
         </button>
      </view>
-      <div class="i-input">驾校名称：<input type="text"  v-model="schoolName"></div>
-      <div class="i-input">详细地址：<input type="text" class="i-input" v-model="schoolLocation"></div>
+      <div class="i-input">驾校名称：<input type="text"  placeholder="请输入驾校名称"  v-model="schoolName"></div>
+      <div class="i-input">详细地址：<input type="text" placeholder="请输入详细地址"  class="i-input" v-model="schoolLocation"></div>
       
-      <i-button i-class="btn" @click="toHome" type="primary"  shape="circle">进入</i-button>
+      <i-button i-class="btn" @click="toHome" type="primary" shape="circle">进入</i-button>
     </div>
 
    

@@ -21,9 +21,9 @@
       </i-grid-item>
     </i-grid>
    
-    <div class="i-input">车牌号：<input type="text"  v-model="carNum"></div>
-    <div class="i-input">车辆颜色：<input type="text"  v-model="carColor"></div>
-    <div class="i-input">汽车品牌：<input type="text"  v-model="carType"></div>
+    <div class="i-input">车牌号：<input type="text" placeholder="请输入车牌号" v-model="carNum"></div>
+    <div class="i-input">车辆颜色：<input type="text" placeholder="请输入车辆颜色"   v-model="carColor"></div>
+    <div class="i-input">汽车品牌：<input type="text"  placeholder="请输入汽车品牌"  v-model="carType"></div>
     
    <i-button @click="add" type="primary" size="large">新增车辆</i-button>
    <div class="i-input">发布通告：<input type="text" placeholder="请输入通知" v-model="news"></div>
@@ -64,11 +64,11 @@ export default {
         add(){
             this.$http.post('http://1.027365.net:88/Car', 
             {
-                id: '',
                 carNum: this.carNum,
                 carSchoolNum: this.schoolNum,
                 carColor: this.carColor,
                 carType: this.carType,
+                carSituation:'未开放'
             }).then((res)=>{
                 console.log('res', res)
                 console.log("添加成功")

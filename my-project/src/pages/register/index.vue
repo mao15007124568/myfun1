@@ -6,8 +6,8 @@
       </view>
       <open-data type="userNickName"></open-data>
       </view>
-          <div class="i-input">姓名：<input type="text"  v-model="userNickname"></div>
-          <picker @change="bindPickerChange" class="i-input" value="schoolList[index].value" :range="schoolList" :range-key="'schoolName'">
+          <div class="i-input">姓名：<input type="text" placeholder="请输入姓名" v-model="userNickname"></div>
+          <picker class="i-input" value="schoolList[index].value" :range="schoolList" :range-key="'schoolName'">
               <view class="picker">
                 请选择所在的驾校：{{schoolList[index].schoolName}}
               </view>
@@ -68,10 +68,10 @@
       }
       })
     },
-      bindPickerChange(e) {
-      console.log('picker发送选择改变，携带值为', e.mp.detail.value)
-      this.index=e.mp.detail.value
-    },
+    //   bindPickerChange(e) {
+    //   console.log('picker发送选择改变，携带值为', e.mp.detail.value)
+    //   this.index=e.mp.detail.value
+    // },
     toHome(){
       // 这一段是之后要加上的
       // this.$http.post('http://1.027365.net:88/User', 
