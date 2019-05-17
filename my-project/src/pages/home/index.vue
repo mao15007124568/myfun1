@@ -7,7 +7,7 @@
        {{action}}
       </i-notice-bar>
     </div>
-    
+       
 
     <swiper
     :indicator-dots="indicatorDots"
@@ -79,7 +79,7 @@ export default {
           complete: res => {
             console.log('云函数获取到的openid: ', res.result.userInfo.appId)
             this.userNum = res.result.userInfo.appId
-            this.$http.get('http://1.027365.net:88/User/getNewInfo?userNum='+this.userNum+'').then((res)=>{
+            this.$http.get('http://www.hyltech.com/api/User/getNewInfo?userNum='+this.userNum+'').then((res)=>{
               console.log('res', res)
                this.action = res.data[0].news
               console.log(res.data)

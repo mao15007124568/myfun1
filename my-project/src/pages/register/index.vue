@@ -44,7 +44,7 @@
     onLoad(){
      var index=0;
      this.getOpenid();
-     this.$http.get('http://1.027365.net:88/School/all/1')
+     this.$http.get('http://www.hyltech.com/api/School/all/1')
      .then((res)=>{
         console.log('res', res)
         this.schoolList = res.data.data

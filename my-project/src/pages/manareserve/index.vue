@@ -11,7 +11,7 @@
         <div
           :class="{'selected':tab === 2,'testTitle':true}"
           @click="changTab(2)"
-        >历史预约
+        >全部预约
         </div>
       </div>
       

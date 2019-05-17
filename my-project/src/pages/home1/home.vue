@@ -9,7 +9,7 @@
       </i-grid-item>
       <i-grid-item>
           <i-grid-icon>
-              <image src="/static/images/2.jfif" />
+              <image src="/statuserInfoic/images/2.jfif" />
           </i-grid-icon>
           <i-grid-label>新增车辆</i-grid-label>
       </i-grid-item>
@@ -36,7 +36,8 @@ export default {
     data:{
        return:{
            openid:'',
-           news:''
+           news:'',
+           userInfo:''
        }
     },
     created(){
@@ -62,7 +63,7 @@ export default {
             })
         },
         add(){
-            this.$http.post('http://1.027365.net:88/Car', 
+            this.$http.post('http://www.hyltech.com/api/Car', 
             {
                 carNum: this.carNum,
                 carSchoolNum: this.schoolNum,
@@ -77,7 +78,7 @@ export default {
             })
         },
         publish(){
-            this.$http.put('http://1.027365.net:88/News/addnews?schoolNum='+this.schoolNum+'&news='+this.news+'&newsSituation=发布', 
+            this.$http.put('http://www.hyltech.com/api/News/addnews?schoolNum='+this.schoolNum+'&news='+this.news+'&newsSituation=发布', 
             {
                 // id: '',
                 // news:this.news ,

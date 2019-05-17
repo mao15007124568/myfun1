@@ -4,7 +4,7 @@
       <i-card v-for="item in car" :key="item" :title="item.carNum" i-class="re_card" :extra="item.carSituation">
           <view slot="content">
            {{item.carType}}
-            <i-button i-class="re_button"  @click="handleClick" type="primary" size="small">开放</i-button>
+            <i-button i-class="re_button"  @click="handleClick(item)" type="primary" size="small">开放</i-button>
           </view>
           <view slot="footer">
             颜色：{{item.carColor}}
@@ -51,7 +51,7 @@
       complete: res => {
         console.log('云函数获取到的openid: ', res.result.userInfo.appId)
         this.schoolNum = res.result.userInfo.appId
-        this.$http.get('http://1.027365.net:88/School/getCarbySchoolNum?schoolNum='+this.schoolNum+'').then((res)=>{
+        this.$http.get('http://www.hyltech.com/api/School/getCarbySchoolNum?schoolNum='+this.schoolNum+'').then((res)=>{
         console.log('res', res)
         this.car = res.data
       }).catch(err=>{
@@ -60,26 +60,12 @@
       }
       })
     },
-      handleClick(){
-        console.log('方法进来了')
+      handleClick(item){
+        console.log('item为'+item);
+        console.log(item.carNum)
         wx.navigateTo({
-          url: '/pages/seatNum/main'
+          url: '/pages/seatNum/main?carNum='+item.carNum
         })
-
-      //   wx.showModal({
-      //   title: '发布确认',
-      //   confirmText:'确认',
-      //   confirmColor:'#2d8cf0',
-      //   cancelText:'取消',
-      //   content: '是否确认发布该车辆？',
-      //   success(res) {
-      //     if (res.confirm) {
-      //       console.log('已成功发布该车')
-      //     } else if (res.cancel) {
-      //      console.log('用户点击了取消')
-      //     }
-      //   }
-      // })
      }
   }
 }

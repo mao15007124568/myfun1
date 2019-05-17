@@ -1,11 +1,10 @@
 <template>
   <div>
 
-     <i-card v-for="item in action" :key="item" :title="item.carNum" i-class="re_card" :extra="'车型：'+item.carColor">
-          <view slot="content">剩余座位数：{{item.carLeftSeat}}
-            <i-button @click="handleClick" type="primary" size="small">Primary</i-button>
+     <i-card :title="action.carNum" i-class="re_card" :extra="'练习项目：'+action.carSubject">
+          <view slot="content">练车时间：{{action.time}}
           </view>
-          <view slot="footer">车辆颜色：{{item.carColor}}</view>
+          <view slot="footer">车辆颜色：{{action.carColor}}</view>
       </i-card>
   </div>
 </template>
@@ -15,32 +14,41 @@
 export default {
   data () {
     return {
+      openId: '',
       action:[],
-      targetTime: 0,
-      clearTimer: false
+      carNum:'',
+      time:'',
+      carColor:'',
+      carSubject:''
     }
   },
-  components: {
-  },
-  created() {
-      // this.$mp.page({
-      //       targetTime: new Date().getTime() + 6430000,
-      //       targetTime1: new Date().getTime() + 86430000,
-      //       targetTime2: new Date().getTime() + 10000
-      // }),
-      this.$http.get('http://1.027365.net:88/Car/all/1', 'type').then((res)=>{
-        console.log('res', res)
-        this.action = res.data.data
-      }).catch(err=>{
-        console.log(err)
-      })
-
-  },
-  components:{
+  onLoad(){
+    this.getOpenid()
+    console.log('打印userNum')
+    
+    
   },
   methods: {
-    
-  }
+    getOpenid() {
+        let that = this;
+        wx.cloud.callFunction({
+        name: 'getOpenid',
+        complete: res => {
+          console.log('云函数获取到的openid: ', res.result.userInfo.appId)
+          this.userNum = res.result.userInfo.appId
+          console.log(this.userNum)
+          this.$http.get('http://www.hyltech.com/api/Reserve/getReserve?userNum='+this.userNum+'').then((res)=>{
+            console.log('res', res)
+            this.action = res.data
+            console.log('打印action')
+            console.log(this.action)
+          }).catch(err=>{
+            console.log(err)
+          })
+        }
+        })
+      }
+}
 }
 </script>
 

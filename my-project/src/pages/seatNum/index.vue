@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>请输入各时间段内的最大座位数</p>
+    <p class="i-input">请输入各时间段内的最大座位数</p>
     <div class="i-input">8-9点：<input type="text" placeholder="请输入8-9点最大座位数" v-model="time8Max"></div>
     <div class="i-input">9-10点：<input type="text" placeholder="请输入9-10点最大座位数" v-model="time9Max"></div>
     <div class="i-input">10-11点：<input type="text" placeholder="请输入10-11点最大座位数" v-model="time10Max"></div>
@@ -24,8 +24,16 @@ export default {
         openid:'',
     }
   },
-  onLoad(){
+  onLoad(options){
      this.getOpenid();
+     console.log('打印options')
+     console.log(options);
+     let carNum = options.carNum;
+  },
+  mounted(){
+      this.carNum = this.$root.$mp.query.carNum
+      console.log('看看传进来没有')
+      console.log(this.carNum)
   },
   methods: {
     getOpenid() {
@@ -39,7 +47,8 @@ export default {
     },
     
     publish(){
-        this.$http.put('http://1.027365.net:88/News/addnews?CarNum='+this.CarNum+'&time8Max='+this.time8Max+'&time9Max='+this.time9Max+'&time10Max='+this.time10Max+'&time11Max='+this.time11Max+'&time14Max='+this.time14Max+'&time15Max='+this.time15Max+'&time16Max='+this.time16Max+'&time17Max='+this.time17Max+'', 
+        console.log(this.carNum)
+        this.$http.put('http://www.hyltech.com/api/Car/updataCarbyCarNum?CarNum='+this.carNum+'&carSubject='+this.carSubject+'&time8Max='+this.time8Max+'&time9Max='+this.time9Max+'&time10Max='+this.time10Max+'&time11Max='+this.time11Max+'&time14Max='+this.time14Max+'&time15Max='+this.time15Max+'&time16Max='+this.time16Max+'&time17Max='+this.time17Max+'', 
             ).then((res)=>{
                 console.log('res', res)
                 console.log("添加成功")

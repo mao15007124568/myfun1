@@ -3,6 +3,7 @@
   "usingComponents": {
     "i-card":"../../../static/dist/card/index",
     "i-button": "../../../static/dist/button/index",
-    "i-modal": "../../../static/dist/modal/index"
+    "i-modal": "../../../static/dist/modal/index",
+    "i-toast": "../../../static/dist/toast/index"
 }
 }
